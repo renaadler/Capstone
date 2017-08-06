@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"
   get "/logout" => "sessions#destroy"
-  
-  # get "/" => 
+
+  get "/" => "relationships#index"
+  get "/connections" => "relationships#index"
 end
