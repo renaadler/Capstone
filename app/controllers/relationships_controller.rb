@@ -10,7 +10,9 @@ class RelationshipsController < ApplicationController
   end
 
   def show
-    # @relationship = current_user.relationships(id: params[:id])
+    # current_user
+    connection_id = params[:id]
+    @relationship = Relationship.find_by(id: connection_id)
     render "show.html.erb"
   end
 end
