@@ -8,4 +8,9 @@ class RelationshipsController < ApplicationController
       redirect_to "/login"
     end
   end
+
+  def show
+    # @relationship = current_user.relationships(id: params[:id])
+    render "show.html.erb"
+  end
 end

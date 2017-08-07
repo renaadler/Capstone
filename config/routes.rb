@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   get "/" => "relationships#index"
   get "/connections" => "relationships#index"
+  get "/connections/:id" => "relationships#show"
 end
