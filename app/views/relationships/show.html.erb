@@ -1,5 +1,10 @@
-<h1>Connection Information</h1>
-  <p><%= @relationship.connection_id %></p>
+<div class="container">
+  <div class="col-md-3"></div>
+    <div class="well">
+      <div class="jumbotron"><h1>Connection Information</h1>
+  <h2>First Name: <%= @relationship.connection.name %></h2>
+  <p><img src="<%= @relationship.connection.image %>" width: "100%"/></p>
   <p>Connection: <%= @relationship.connected_status %></p>
-
+  <p>Next Step: <%= @relationship.step.title %></p>
+  <p>Status: <%= @relationship.step_status %></p>
 <% console %>

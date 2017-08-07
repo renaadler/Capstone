@@ -10,6 +10,11 @@ User.create(name: "James", email:"james@email.com", password:"password", image:"
 User.create(name: "Jenny", email:"jenny@email.com", password:"password", image:"https://s-media-cache-ak0.pinimg.com/originals/82/a7/de/82a7de90c2c0febc5a9ba30041e9ca96.jpg")
 User.create(name: "Steve", email:"steve@email.com", password:"password", image:"https://s-media-cache-ak0.pinimg.com/736x/1a/87/63/1a87631f83466c798ee89c6ee8b4480a--classy-hairstyles-undercut-hairstyles.jpg")
 
+Step.create(title: "Initial Meeting")
+Step.create(title: "Phone Call")
+Step.create(title: "Coffee")
+Step.create(title: "Dinner")
+
 Relationship.create(user_id: 1, connection_id: 2, connected_status: "Pending", step_id: 1, step_status: "Green")
 Relationship.create(user_id: 1, connection_id: 3, connected_status: "Connected", step_id: 1, step_status: "Yellow")
 Relationship.create(user_id: 1, connection_id: 4, connected_status: "Connected", step_id: 3, step_status: "Green")
@@ -26,11 +31,6 @@ Relationship.create(user_id: 4, connection_id: 1, connected_status: "Connected",
 Relationship.create(user_id: 4, connection_id: 2, connected_status: "Connected", step_id: 1, step_status: "Green")
 Relationship.create(user_id: 4, connection_id: 3, connected_status: "Connected", step_id: 1, step_status: "Green")
 
-
-Step.create(title: "Initial Meeting")
-Step.create(title: "Phone Call")
-Step.create(title: "Coffee")
-Step.create(title: "Dinner")
 
 
 

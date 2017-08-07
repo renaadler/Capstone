@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   get "/logout" => "sessions#destroy"
 
   get "/" => "relationships#index"
-  get "/connections" => "relationships#index"
-  get "/connections/:id" => "relationships#show"
+  get "/relationships" => "relationships#index"
+  get "/relationships/:id" => "relationships#show"
 end

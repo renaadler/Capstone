@@ -11,8 +11,8 @@ class RelationshipsController < ApplicationController
 
   def show
     # current_user
-    connection_id = params[:id]
-    @relationship = Relationship.find_by(id: connection_id)
+    relationship_id = params[:id]
+    @relationship = Relationship.find_by(id: relationship_id)
     render "show.html.erb"
   end
 end

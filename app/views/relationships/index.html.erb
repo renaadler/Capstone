@@ -1,11 +1,12 @@
 <h1>Connections</h1>
 <% @relationships.each do |relationship|%>
-  <% person = User.find_by(id: relationship.connection_id) %>
-  <% step = Step.find_by(id: relationship.step_id) %>
-  <p>First Name: <%= person.name %></p>
+  <%# person = User.find_by(id: relationship.connection_id) %>
+  <%# step = Step.find_by(id: relationship.step_id) %>
+  <h2>First Name: <%= relationship.connection.name %></h2>
   <p>Connection: <%= relationship.connected_status %></p>
-  <p>Next Step: <%= step.title %></p>
+  <p>Next Step: <%= relationship.step.title %></p>
   <p>Status: <%= relationship.step_status %></p>
+  <a href="/relationships/<%= relationship.id %>">More info</a>
 <% end %>
 
 <% console %>
