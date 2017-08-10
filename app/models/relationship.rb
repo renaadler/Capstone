@@ -19,4 +19,11 @@ class Relationship < ApplicationRecord
       "Unavailable"
     end
   end
+
+  def update_step_status
+    if user_status == "Green" && connection_status == "Green"
+      self.update(step_id: step_id + 1, step_status: "Not Yet Updated")
+      inverse_relationship.update(step_id: step_id + 1, step_status: "Not Yet Updated")
+    end
+  end
 end

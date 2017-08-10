@@ -10,11 +10,7 @@
         <%= form_tag "/relationships/#{@relationship.id}", method: "patch" do %>
           <div class="form-group">
           <p>Your Status:<select name="step_status"></p>
-            <option value="<%= @relationship.step_status %>"><%= @relationship.step_status %></option>
-            <option role="separator" class="divider"></option>
-            <option value="Green">Green</option>
-            <option value="Yellow">Yellow</option>
-            <option value="Red">Red</option><
+          <%= options_for_select([['Green'], ['Yellow'], ['Red']], @relationship.step_status) %>
             </select>
             <input type="submit" name="Update Status">
           </div>
