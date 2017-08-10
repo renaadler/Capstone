@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   get "/signup" => "users#new"
   post "/users" => "users#create"
@@ -9,4 +10,5 @@ Rails.application.routes.draw do
   get "/" => "relationships#index"
   get "/relationships" => "relationships#index"
   get "/relationships/:id" => "relationships#show"
+  patch "/relationships/:id" => "relationships#update"
 end

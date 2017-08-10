@@ -15,4 +15,13 @@ class RelationshipsController < ApplicationController
     @relationship = Relationship.find_by(id: relationship_id)
     render "show.html.erb"
   end
+
+  def update
+    relationship_id = params[:id]
+    @relationship = Relationship.find_by(id: relationship_id)
+    @relationship.step_status = params[:step_status]
+    @relationship.save
+    flash[:success] = "Status Changed!"
+    redirect_to "/relationships/#{@relationship.id}"
+  end
 end

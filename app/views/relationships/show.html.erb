@@ -1,10 +1,25 @@
 <div class="container">
   <div class="col-md-3"></div>
     <div class="well">
-      <div class="jumbotron"><h1>Connection Information</h1>
-  <h2>First Name: <%= @relationship.connection.name %></h2>
-  <p><img src="<%= @relationship.connection.image %>" width: "100%"/></p>
-  <p>Connection: <%= @relationship.connected_status %></p>
-  <p>Next Step: <%= @relationship.step.title %></p>
-  <p>Status: <%= @relationship.step_status %></p>
-<% console %>
+      <div class="jumbotron"><h2>Connection Information</h2>
+        <h3>First Name: <%= @relationship.connection.name %></h3>
+        <p><img src="<%= @relationship.connection.image %>" width: "100%"/></p>
+        <p>Connection: <%= @relationship.connected_status %></p>
+        <p>Next Step: <%= @relationship.step.title %></p>
+        <p><%= @relationship.connection.name %>'s Status: <%= @relationship.connection_status %></p>
+        <%= form_tag "/relationships/#{@relationship.id}", method: "patch" do %>
+          <div class="form-group">
+          <p>Your Status:<select name="step_status"></p>
+            <option value="<%= @relationship.step_status %>"><%= @relationship.step_status %></option>
+            <option role="separator" class="divider"></option>
+            <option value="Green">Green</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Red">Red</option><
+            </select>
+            <input type="submit" name="Update Status">
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+
