@@ -1,4 +1,4 @@
-<h1>Connections</h1>
+<h1>Users</h1>
 <% @users.each_slice(3) do |three_users|%>
     <div class="row">
     <% three_users.each do |user| %>
@@ -6,7 +6,15 @@
         <div class="well">
           <h2>First Name: <%= user.name %></h2>
           <!-- <p><img src="<%= user.image %>" width: "100%"/></p> -->
-          <a href="/users/<%= user.id %>">More info</a>
+          <a href="/users/<%= user.id %>" class="btn btn-default">More info</a>
+          <% if current_user.connections.include? user %>
+            (already connected)
+          <% else %>
+            <%= form_tag "/relationships", method: "post", style: "display: inline" do %>
+              <input type="hidden" name="connection_id" value="<%= user.id %>">
+              <input type="submit" value="Connect" class="btn btn-default">
+            <% end %>
+          <% end %>
         </div>
       </div>
     <% end %>
