@@ -1,0 +1,14 @@
+<h1>Connections</h1>
+<% @users.each_slice(3) do |three_users|%>
+    <div class="row">
+    <% three_users.each do |user| %>
+      <div class="col-md-4">
+        <div class="well">
+          <h2>First Name: <%= user.name %></h2>
+          <!-- <p><img src="<%= user.image %>" width: "100%"/></p> -->
+          <a href="/users/<%= user.id %>">More info</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

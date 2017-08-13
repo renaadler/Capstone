@@ -1,4 +1,20 @@
 class UsersController < ApplicationController
+  def index
+    # if current user
+      @users = User.all
+      render "index.html.erb"
+    # else
+    #   flash[:warning] = "Invalid email or password!"
+    #   redirect_to "/login"
+    # end
+  end
+
+  def show
+    user_id = params[:id]
+    @user = User.find_by(id: user_id)
+    render "show.html.erb"
+  end
+
   def new
     render "new.html.erb" 
   end
@@ -13,7 +29,7 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
       flash[:success] = "Account Created!"
-      redirect_to "/"
+      redirect_to "/users/#{user.id}"
     else
       flash[:warning] = "Invalid email or password"
       redirect_to "/signup"

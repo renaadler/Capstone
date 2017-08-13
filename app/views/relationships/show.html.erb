@@ -9,13 +9,18 @@
         <p><%= @relationship.connection.name %>'s Status: <%= @relationship.connection_status %></p>
         <%= form_tag "/relationships/#{@relationship.id}", method: "patch" do %>
           <div class="form-group">
-          <p>Your Status:<select name="step_status"></p>
-          <%= options_for_select([['Green'], ['Yellow'], ['Red']], @relationship.step_status) %>
-            </select>
-            <input type="submit" name="Update Status">
+          <p>Your Status:
+            <% if @relationship.step_status == "Unavailable" %>
+              Unavailable <a href="">Reconnect</a>
+            <% else %>
+              <select name="step_status">
+                <%= options_for_select([['Green'], ['Yellow'], ['Red']], @relationship.step_status) %>
+              </select>
+              <input type="submit" name="Update Status">
+            <% end %>
+          </p>
           </div>
         <% end %>
         </div>
       </div>
     </div>
-

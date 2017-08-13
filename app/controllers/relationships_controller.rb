@@ -21,9 +21,13 @@ class RelationshipsController < ApplicationController
     @relationship = Relationship.find_by(id: relationship_id)
     @relationship.step_status = params[:step_status]
     @relationship.update_step_status
-    @relationship.save
-
-    flash[:success] = "Status Changed!"
-    redirect_to "/relationships/#{@relationship.id}"
+    if 
+      @relationship.save
+      flash[:success] = "Status Changed!"
+      redirect_to "/relationships/#{@relationship.id}"
+    else
+      flash[:warning] = "Unable to update."
+      render "show.html.erb"
+    end
   end
 end

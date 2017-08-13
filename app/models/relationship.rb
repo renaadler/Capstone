@@ -25,5 +25,16 @@ class Relationship < ApplicationRecord
       self.update(step_id: step_id + 1, step_status: "Not Yet Updated")
       inverse_relationship.update(step_id: step_id + 1, step_status: "Not Yet Updated")
     end
+    if user_status == "Red" || connection_status == "Red"
+      self.update(connected_status: "Disconnected", step_status: "Unavailable")
+      # self.connected_status = "Disconnected"
+      # self.step_status = "Unavailable"
+      inverse_relationship.update(connected_status: "Disconnected", step_status: "Unavailable")
+      # inverse_relationship.connected_status = "Disconnected"
+      # inverse_relationship.step_status = "Unavailable"
+
+      # self.save
+      # inverse_relationship.save
+    end 
   end
 end
