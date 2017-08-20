@@ -10,8 +10,12 @@
         <%= form_tag "/relationships/#{@relationship.id}", method: "patch" do %>
           <div class="form-group">
           <p>Your Status:
-            <% if @relationship.step_status == "Unavailable" %>
-              Unavailable <a href="">Reconnect</a>
+            <% if @relationship.connected_status == "Disconnected" %>
+              <%= form_tag "/relationships/#{@relationship.id}", method: "patch", style: "display: inline" do %>
+              <input type="hidden" name="connection_id" value="<%= @relationship.user_id %>">
+              <input type="hidden" name="connected_status" value="<%= @relationship.connected_status%>">
+              <input type="submit" value="Reconnect" class="btn btn-default">
+            <% end %>
             <% else %>
               <select name="step_status">
                 <%= options_for_select([['Green'], ['Yellow'], ['Red']], @relationship.step_status) %>

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="well">
+    <div class="jumbotron">
+      <h2>Pending Requests</h2>
+      <% @pending_relationships.each do |pending_relationship| %>
+        <h4><%= pending_relationship.connection.name %></h4>
+        <%= form_tag "/pending", method: "patch" do %>
+          <input type="hidden" name="relationship_id" value="<%= pending_relationship.id %>">
+          <input type="submit" value="Accept">
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

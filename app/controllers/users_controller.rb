@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     if current_user
-      @users = User.all
+      @users = User.where.not(id: current_user.id)
       render "index.html.erb"
     else
       flash[:warning] = "You need to be logged in to see this page."

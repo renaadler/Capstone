@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   patch "/users/:id" => "users#update"
   delete "/users/:id" => "users#destroy"
 
+  get "/pending" => "relationships#pending"
+  patch "/pending" => "relationships#pending_update"
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"
   get "/logout" => "sessions#destroy"
