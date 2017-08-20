@@ -2,8 +2,11 @@ class RelationshipsController < ApplicationController
   def index
     if current_user
       if current_user.relationships.count > 0
-        # @relationships = current_user.relationships
-        @not_yet_updated = current_user.relationships.where(connected_status: "Connected", step_status: "Not Yet Updated")
+        @relationships = current_user.relationships
+        @my_not_yet_updated = current_user.my_not_yet_updated_relationships
+        @their_not_yet_updated = current_user.their_not_yet_updated_relationships
+        @yellow_status = current_user.yellow_status_relationships
+        @their_yellow_status = current_user.their_yellow_status_relationships
         # @not_yet_updated_relationships = @relationships.yellow_status_relationships
         render "index.html.erb"
       else
