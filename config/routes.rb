@@ -1,5 +1,12 @@
 
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      patch '/relationships/:id' => "relationships#update"
+      get '/relationships/:id' => "relationships#show"
+    end
+  end
+
   get "/users/" => "users#index"
   get "/signup" => "users#new"
   post "/users" => "users#create"
@@ -19,4 +26,5 @@ Rails.application.routes.draw do
   post "/relationships" => "relationships#create"
   get "/relationships/:id" => "relationships#show"
   patch "/relationships/:id" => "relationships#update"
+
 end

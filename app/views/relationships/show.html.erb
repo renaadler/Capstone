@@ -1,3 +1,33 @@
+<div id="example-2">
+  <button @click="show = !show">Toggle show</button>
+  <transition name="bounce">
+    <p v-if="show">Look at me!</p>
+  </transition>
+  <div>
+    <select v-model="status">
+      <option v-for="option in statusOptions" v-bind:value="option">{{ option }}</option>
+    </select>
+    <div class="row" style="height: 100px">
+      <div class="col-md-4" style="background-color: red; height: 100%">
+        <div class="info" v-if="status === 'red'">
+          <h3>First Name: <%= @relationship.connection.name %></h3>
+        </div>
+      </div>
+      <div class="col-md-4" style="background-color: yellow; height: 100%">
+        <div class="info" v-if="status === 'yellow'">
+          <h3>First Name: <%= @relationship.connection.name %></h3>
+        </div>
+      </div>
+      <div class="col-md-4" style="background-color: green; height: 100%">
+        <div class="info" v-if="status === 'green'">
+          <h3>First Name: <%= @relationship.connection.name %></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="container">
   <div class="col-md-3"></div>
     <div class="well">
@@ -7,7 +37,7 @@
         <p>Connection: <%= @relationship.connected_status %></p>
         <p>Next Step: <%= @relationship.step.title %></p>
         <p><%= @relationship.connection.name %>'s Status: <%= @relationship.connection_status %></p>
-        <%= form_tag "/relationships/#{@relationship.id}", method: "patch" do %>
+        <%= form_tag "/api/v1/relationships/#{@relationship.id}", method: "patch" do %>
           <div class="form-group">
           <p>Your Status:
             <% if @relationship.connected_status == "Disconnected" %>

@@ -1,22 +1,60 @@
-<h1>Users</h1>
-<% @users.each_slice(3) do |three_users|%>
-    <div class="row">
-    <% three_users.each do |user| %>
-      <div class="col-md-4">
-        <div class="well">
-          <h2>First Name: <%= user.name %></h2>
-          <!-- <p><img src="<%= user.image %>" width: "100%"/></p> -->
-          <a href="/users/<%= user.id %>" class="btn btn-default">More info</a>
-          <% if current_user.connections.include? user %>
-            (already connected)
-          <% else %>
-            <%= form_tag "/relationships", method: "post", style: "display: inline" do %>
-              <input type="hidden" name="connection_id" value="<%= user.id %>">
-              <input type="submit" value="Connect" class="btn btn-default">
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+<body>
+<div class="main">
+    <div class="page-header largest parallax custom text-center" style="background-image:url(assets/images/page-header-bg.jpg)" data-0="background-position:50% 50%;" data-top-bottom="background-position:50% 100%">
+        <div class="container-fluid">
+            <h1 data-300-top="opacity:1;transform:scale(1);" data-top-bottom="opacity:0.4;transform:scale(1.9);">Portfolio</h1>
+            <ol class="breadcrumb" data-300-top="opacity:1;" data-top-bottom="opacity:0.4;">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Pages</a></li>
+                <li class="active">Portfolio</li>
+            </ol>
+        </div><!-- End .container-fluid -->
+    </div><!-- End .page-header -->
+
+    <div class="container-fluid fullwidth">
+        <ul id="portfolio-filter">
+            <li class="active"><a href="#" data-filter="*">All</a></li>
+            <li><a href="#" data-filter=".web-design">Web Design</a></li>
+            <li><a href="#" data-filter=".marketing">Marketing</a></li>
+            <li><a href="#" data-filter=".video">Video</a></li>
+            <li><a href="#" data-filter=".wordpress">Wordpress</a></li>
+            <li><a href="#" data-filter=".illustration">Illustration</a></li>
+            <li><a href="#" data-filter=".logo-design">Logo Design</a></li>
+        </ul>
+    </div><!-- End .container-fluid -->
+    <div id="portfolio-item-container" class="popup-gallery max-col-3" data-layoutmode="fitRows">
+    <% @users.each do |user| %>
+    <div class="portfolio-item portfolio-anim web-design wordpress">
+                        <figure>
+                            <img src="<%= user.image %>" alt="Portfolio Name">
+                            <figcaption>
+                                <a href="assets/images/portfolio/grid/item1.jpg" data-thumb="assets/images/portfolio/grid/item1.jpg" class="zoom-btn"><i class="fa fa-search"></i></a>
+                            </figcaption>
+                        </figure>
+                        <div class="portfolio-meta">
+                            <h3 class="btn btn-default" class="portfolio-title"><a href="/users/<%= user.id %>" title="Portfolio name"><%= user.name %></a></h3>
+                              <% if current_user.connections.include? user %>
+                                (already connected)
+                              <% else %>
+                                <%= form_tag "/relationships", method: "post", style: "display: inline" do %>
+                                  <input type="hidden" name="connection_id" value="<%= user.id %>">
+                                  <input type="submit" value="Connect" class="btn btn-default">
+                                <% end %>
+                              <% end %>
+                            <div class="portfolio-tags">
+                                <a href="#">Design</a>,
+                                <a href="#">Develop</a>
+                            </div><!-- End .portfolio-tags -->
+                        </div><!-- End .portfolio-meta -->
+                    </div><!-- End .portfolio-item -->
+                <% end %>
+                </div>
+
+</div><!-- End #wrapper -->
+<a id="scroll-top" href="#top" title="Scroll top"><i class="fa fa-angle-up"></i></a>
+
+<!-- End -->
+<script src="assets/js/plugins.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
