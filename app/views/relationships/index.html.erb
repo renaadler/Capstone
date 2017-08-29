@@ -1,31 +1,26 @@
-<div id="relationship">
- <div v-for="relationship in relationships">
-    {{ relationship.name }} 
-    </div>
-</div>
-  
-       
 <div id="wrapper">
-             <div class="main">
-                <div class="page-header largest parallax custom text-center mb0" style="background-image:url(assets/images/page-header-bg.jpg)" data-0="background-position:50% 50%;" data-top-bottom="background-position:50% 100%">
-                    <div class="container-fluid">
-                        <h1 data-300-top="opacity:1;transform:scale(1);" data-top-bottom="opacity:0.4;transform:scale(1.9);">About Us</h1>
-                        <ol class="breadcrumb" data-300-top="opacity:1;" data-top-bottom="opacity:0.4;">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="#">Pages</a></li>
-                            <li class="active">About Us</li>
-                        </ol>
-                    </div><!-- End .container-fluid -->
-                </div><!-- End .page-header -->
-                <div class="container-fluid">
-                    <h2 class="title custom text-center">Connections</h2>
-                    <div class="row">
-                        <% @relationships.each do |relationship| %>
+    <div class="main">
+        <div class="page-header largest parallax custom text-center mb0" style="background-image:url(assets/images/page-header-bg.jpg)" data-0="background-position:50% 50%;" data-top-bottom="background-position:50% 100%">
+            <div class="container-fluid">
+                <h1 data-300-top="opacity:1;transform:scale(1);" data-top-bottom="opacity:0.4;transform:scale(1.9);">About Us</h1>
+                <ol class="breadcrumb" data-300-top="opacity:1;" data-top-bottom="opacity:0.4;">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li class="active">About Us</li>
+                </ol>
+            </div><!-- End .container-fluid -->
+        </div><!-- End .page-header -->
+        <div class="container-fluid">
+            <h2 class="title custom text-center">Connections</h2>
+            <div class="row">
+                <div id="relationship">
+                    <div v-for="relationship in relationships">
+                        <h3><a v-bind:href="'/relationships/' + relationship.id">{{ relationship.connection.name }}</a></h3> 
                         <div class="col-md-3 col-xs-6 col-xss-12">
                             <div class="member">
                                 <div class="member-top">
                                     <figure>
-                                        <img src="<%= relationship.connection.image %>" alt="Member Name">
+                                        <img v-bind:src="'relationship.connection.image'" alt="Picture Not Loading">
                                     </figure>
                                     <div class="social-icons">
                                         <a href="#" class="social-icon" title="Facebook"><i class="fa fa-facebook"></i></a>
@@ -33,137 +28,132 @@
                                         <a href="#" class="social-icon" title="Github"><i class="fa fa-github"></i></a>
                                         <a href="#" class="social-icon" title="Linkedin"><i class="fa fa-linkedin"></i></a>
                                     </div><!-- End .social-icons -->
+                                    <h3 class="member-title"><a v-bind:href="'/relationships/' + relationship.id">{{ relationship.connection.name }}</a></h3>
+                                    <p class="member-title"><small><a v-bind:href="'/relationships/' + relationship.id">Connection: {{ relationship.connected_status }}</small></a></p>
+                                    <p class="member-title"><small><a v-bind:href="'/relationships/' + relationship.id">Next Step: {{relationship.step.title}}</small></a></p>
+                                    <p class="member-title"><small><a v-bind:href="'/relationships/' + relationship.id">{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</small></a></p>
+                                    <p class="member-title"><small><a v-bind:href="'/relationships/' + relationship.id">Your Status:  {{relationship.user_status}}</small></a></p>
                                 </div><!-- End .member-top -->
-                                <h3 class="member-title"><a href="/relationships/<%= relationship.id %>"><%= relationship.connection.name %></a></h3>
-                            <p class="member-title"><small>Connection: <%= relationship.connected_status %></small></p>
-                            <p><small>Next Step: <%= relationship.step.title %></small></p>
-                            <p><small><%= relationship.connection.name %>'s Status: <%= relationship.connection_status %></small></p>
-                            <p><small>Your Status: <%= relationship.user_status %></small></p>
                             </div><!-- End .member -->
                         </div><!-- End .col-md-3 -->
-                        <% end %>
                     </div><!-- End .row -->
                 </div><!-- End .container-fluid -->
+            </div>
+        </div>
+    </div>
+</div>
 
-                <div class="mb40 mb20-sm mb25-xs"></div><!-- margin -->
+<div class="mb40 mb20-sm mb25-xs"></div><!-- margin -->
+    <div class="mb65 mb50-sm"></div><!-- margin -->
+        <div class="mb65 mb35-sm"></div><!-- margin -->
+            <div class="mb50"></div><!-- margin -->
 
-                
-
-                <div class="mb65 mb50-sm"></div><!-- margin -->
-
-            
-                <div class="mb65 mb35-sm"></div><!-- margin -->
-
-
-                <div class="mb50"></div><!-- margin -->
-
-                 <footer class="footer">
+<footer class="footer">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="row">
-                                <div class="col-xs-4 col-xss-12">
-                                    <div class="widget">
-                                        <h4 class="widget-title">Company</h4>
-                                        <ul class="fa-ul">
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>About us</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Features</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Portfolio</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Latest News</a></li>
-                                        </ul>
-                                    </div><!-- End .widget -->
-                                </div><!-- End .col-xs-4 -->
-                                <div class="col-xs-4 col-xss-12">
-                                    <div class="widget">
-                                        <h4 class="widget-title">Policy</h4>
-                                        <ul class="fa-ul">
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Privacy</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Cookies</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Trademarks</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Terms of use</a></li>
-                                        </ul>
-                                    </div><!-- End .widget -->
-                                </div><!-- End .col-xs-4 -->
-                                <div class="col-xs-4 col-xss-12">
-                                    <div class="widget">
-                                        <h4 class="widget-title">Learn</h4>
-                                        <ul class="fa-ul">
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Order Tracking</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Locations</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Return Policy</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Sales &amp; Support</a></li>
-                                        </ul>
-                                    </div><!-- End .widget -->
-                                </div><!-- End .col-xs-4 -->
-                            </div><!-- End .row -->
+<div class="row">
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-xs-4 col-xss-12">
+                <div class="widget">
+                    <h4 class="widget-title">Company</h4>
+                    <ul class="fa-ul">
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>About us</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Features</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Portfolio</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Latest News</a></li>
+                    </ul>
+                </div><!-- End .widget -->
+            </div><!-- End .col-xs-4 -->
+            <div class="col-xs-4 col-xss-12">
+                <div class="widget">
+                    <h4 class="widget-title">Policy</h4>
+                    <ul class="fa-ul">
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Privacy</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Cookies</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Trademarks</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Terms of use</a></li>
+                    </ul>
+                </div><!-- End .widget -->
+            </div><!-- End .col-xs-4 -->
+            <div class="col-xs-4 col-xss-12">
+                <div class="widget">
+                    <h4 class="widget-title">Learn</h4>
+                    <ul class="fa-ul">
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Order Tracking</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Locations</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Return Policy</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Sales &amp; Support</a></li>
+                    </ul>
+                </div><!-- End .widget -->
+            </div><!-- End .col-xs-4 -->
+        </div><!-- End .row -->
 
-                            <div class="row">
-                                <div class="col-xs-4 col-xss-12">
-                                    <div class="widget">
-                                        <h4 class="widget-title">About</h4>
-                                        <ul class="fa-ul">
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Stores</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Investors</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Latest Apps</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Mobile</a></li>
-                                        </ul>
-                                    </div><!-- End .widget -->
-                                </div><!-- End .col-xs-4 -->
-                                <div class="col-xs-4 col-xss-12">
-                                    <div class="widget">
-                                        <h4 class="widget-title">Programs</h4>
-                                        <ul class="fa-ul">
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Programs</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Financing</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Order Status</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Workshops</a></li>
-                                        </ul>
-                                    </div><!-- End .widget -->
-                                </div><!-- End .col-xs-xs4 -->
-                                <div class="col-xs-4 col-xss-12">
-                                    <div class="widget">
-                                        <h4 class="widget-title">Useful Links</h4>
-                                        <ul class="fa-ul">
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Manage</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Our Partners</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Careers</a></li>
-                                            <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Sitemap</a></li>
-                                        </ul>
-                                    </div><!-- End .widget -->
-                                </div><!-- End .col-xs-4 -->
-                            </div><!-- End .row -->
-                        </div><!-- End .col-md-8 -->
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-6">
-                                    <div class="widget about-widget">
-                                        <img src="assets/images/footer-logo.png" alt="Bold Logo" class="footer-logo">
-                                        <p>We create themes and templates with bootstrap. We work with passion to provide you better services.</p>
-                                        <ul class="about-list">
-                                            <li><span>Visit Us:</span> 221B Baker St, Marylebone, London UK</li>
-                                            <li><span>Call Us:</span> +1 (355) 800 08 80 - +1 (450) 900 09 90</li>
-                                            <li><span>Email:</span> <a href="mailto:#">madeup@gmail.com</a></li>
-                                        </ul>
-                                    </div><!-- End .widget -->
-                                </div><!-- End .col-md-12 -->
+        <div class="row">
+            <div class="col-xs-4 col-xss-12">
+                <div class="widget">
+                    <h4 class="widget-title">About</h4>
+                    <ul class="fa-ul">
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Stores</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Investors</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Latest Apps</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Mobile</a></li>
+                    </ul>
+                </div><!-- End .widget -->
+            </div><!-- End .col-xs-4 -->
+            <div class="col-xs-4 col-xss-12">
+                <div class="widget">
+                    <h4 class="widget-title">Programs</h4>
+                    <ul class="fa-ul">
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Programs</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Financing</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Order Status</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Workshops</a></li>
+                    </ul>
+                </div><!-- End .widget -->
+            </div><!-- End .col-xs-xs4 -->
+            <div class="col-xs-4 col-xss-12">
+                <div class="widget">
+                    <h4 class="widget-title">Useful Links</h4>
+                    <ul class="fa-ul">
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Manage</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Our Partners</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Careers</a></li>
+                        <li><a href="#"><i class="fa-li fa fa-angle-right"></i>Sitemap</a></li>
+                    </ul>
+                </div><!-- End .widget -->
+            </div><!-- End .col-xs-4 -->
+        </div><!-- End .row -->
+    </div><!-- End .col-md-8 -->
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-12 col-sm-6">
+                <div class="widget about-widget">
+                    <img src="assets/images/footer-logo.png" alt="Bold Logo" class="footer-logo">
+                    <p>We create themes and templates with bootstrap. We work with passion to provide you better services.</p>
+                    <ul class="about-list">
+                        <li><span>Visit Us:</span> 221B Baker St, Marylebone, London UK</li>
+                        <li><span>Call Us:</span> +1 (355) 800 08 80 - +1 (450) 900 09 90</li>
+                        <li><span>Email:</span> <a href="mailto:#">madeup@gmail.com</a></li>
+                    </ul>
+                </div><!-- End .widget -->
+            </div><!-- End .col-md-12 -->
 
-                                <div class="col-md-12 col-sm-6">
-                                    <div class="widget newsletter-widget">
-                                        <h4 class="widget-title">Subscribe</h4>
-                                        <form action="#">
-                                            <input type="email" class="form-control input-sm" placeholder="Join our newsletter" required>
-                                            <div class="clearfix">
-                                                <input type="submit" class="btn btn-sm" value="Subscribe">
-                                                <p>* We won't share it with third party.</p>
-                                            </div><!-- End .clearfix -->
-                                        </form>
-                                    </div><!-- End .widget -->
-                                </div><!-- End .col-md-12 -->
-                            </div><!-- End .row -->
-                        </div><!-- End .col-md-4 -->
-                    </div><!-- End .row -->
+            <div class="col-md-12 col-sm-6">
+                <div class="widget newsletter-widget">
+                    <h4 class="widget-title">Subscribe</h4>
+                    <form action="#">
+                        <input type="email" class="form-control input-sm" placeholder="Join our newsletter" required>
+                        <div class="clearfix">
+                            <input type="submit" class="btn btn-sm" value="Subscribe">
+                            <p>* We won't share it with third party.</p>
+                        </div><!-- End .clearfix -->
+                    </form>
+                </div><!-- End .widget -->
+            </div><!-- End .col-md-12 -->
+        </div><!-- End .row -->
+    </div><!-- End .col-md-4 -->
+</div><!-- End .row -->
                 </div><!-- End .container-fluid -->
-
                 <div class="footer-bottom">
                     <div class="container-fluid">
                         <div class="footer-left">
@@ -194,12 +184,11 @@
                     </div><!-- End .container-fluid -->
                 </div><!-- End .footer-bottom -->
             </footer><!-- End .footer -->
-
         </div><!-- End #wrapper -->
-        <a id="scroll-top" href="#top" title="Scroll top"><i class="fa fa-angle-up"></i></a>
+<a id="scroll-top" href="#top" title="Scroll top"><i class="fa fa-angle-up"></i></a>
 
-        <!-- End -->
-        <script src="assets/js/plugins.min.js"></script>
-        <script src="assets/js/main.js"></script>
-    </body>
+<!-- End -->
+<script src="assets/js/plugins.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
 </html>

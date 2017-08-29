@@ -1,7 +1,8 @@
 json.array! @relationships.each do |relationship|
   json.id relationship.id
-  json.name relationship.connection.name
   json.connection relationship.connection
+  json.name relationship.connection.name
   json.next_step relationship.step.title
-  json.status relationship.connection_status
+  json.inverse_status relationship.connection_status
+  json.connected_status relationship.connected_status
 end
