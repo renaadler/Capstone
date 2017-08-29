@@ -2,8 +2,8 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      patch '/relationships/:id' => "relationships#update"
-      get '/relationships/:id' => "relationships#show"
+      get '/relationships' => "relationships#index"
+      # patch '/relationships/:id' => "relationships#update"
     end
   end
 

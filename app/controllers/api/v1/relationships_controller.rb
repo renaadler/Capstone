@@ -1,4 +1,9 @@
 class Api::V1::RelationshipsController < ApplicationController
+  def index
+    @relationships = current_user.relationships
+    render "index.json.jbuilder"
+  end
+  
   def update
     relationship_id = params[:id]
     @relationship = Relationship.find_by(id: relationship_id)
