@@ -1,17 +1,19 @@
 /* global Vue, Rails */
 document.addEventListener("DOMContentLoaded", function(event) { 
   var app = new Vue({
-    el: '#update',
+    el: '#show',
     data: {
-      message: 'Hello Vue!'
+      message: 'Hello Vue!',
+      relationship: {}
     },
     mounted: function() {
+      console.log('relationshipId', relationshipId);
       Rails.ajax({
-        url: "/api/v1/relationships",
-        type: "PATCH",
+        url: "/api/v1/relationships/" + relationshipId,
+        type: "get",
         success: function(response) {
-          console.log(response);
-          this.relationships = response;
+          console.log('response', response);
+          this.relationship = response;
         }.bind(this)
       });
     },

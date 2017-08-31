@@ -1,26 +1,53 @@
 
+<script type="text/javascript">
+  relationshipId = <%= @relationship.id %>;
+</script>
+            <div class="row" id="show" style="height: 500px">
+              <div class="col-md-3" style="background-color: blue; height: 100%">
+                <div class="info" v-if="relationship.step.id === 1">
+                  <h3>Name: {{ relationship.connection.name }}</h3>
+                  <p>Connection: {{ relationship.connected_status }}</p>
+                  <p>Next Step: {{relationship.step.title}}</p>
+                  <p>{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</p>
+                  <p>Your Status:  {{relationship.user_status}}</p>
+                </div>
+              </div>
+              <div class="col-md-3" style="background-color: red; height: 100%">
+                <div class="info" v-if="relationship.step.id === 2">
+                <div>
+                  <h3>Name: {{ relationship.connection.name }}</h3>
+                  <p>Connection: {{ relationship.connected_status }}</p>
+                  <p>Next Step: {{relationship.step.title}}</p>
+                  <p>{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</p>
+                  <p>Your Status:  {{relationship.user_status}}</p>
+                </div>
+                </div>
+              </div>
+              <div class="col-md-3" style="background-color: yellow; height: 100%">
+                <div class="info" v-if="relationship.step.id === 3">
+                  <div>
+                  <h3>Name: {{ relationship.connection.name }}</h3>
+                  <p>Connection: {{ relationship.connected_status }}</p>
+                  <p>Next Step: {{relationship.step.title}}</p>
+                  <p>{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</p>
+                  <p>Your Status:  {{relationship.user_status}}</p>
+                </div>
+                </div>
+              </div>
+              <div class="col-md-3" style="background-color: green; height: 100%">
+                <div class="info" v-if="relationship.step.id === 4">
 
-                                    <select v-model="status">
-      <option v-for="option in statusOptions" v-bind:value="option">{{ option }}</option>
-    </select>
-        
-            <div class="row" style="height: 100px">
-              <div class="col-md-4" style="background-color: red; height: 100%">
-                <div class="info" v-if="status === 'red'">
-                  <h3>{{ relationship.connection.name }}</h3>
+                  <div>
+                  <h3>Name: {{ relationship.connection.name }}</h3>
+                  <p>Connection: {{ relationship.connected_status }}</p>
+                  <p>Next Step: {{relationship.step.title}}</p>
+                  <p>{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</p>
+                  <p>Your Status:  {{relationship.user_status}}</p>
+                </div>
                 </div>
               </div>
-              <div class="col-md-4" style="background-color: yellow; height: 100%">
-                <div class="info" v-if="status === 'yellow'">
-                  <h3>{{ relationship.connection.name }}</h3>
-                </div>
-              </div>
-              <div class="col-md-4" style="background-color: green; height: 100%">
-                <div class="info" v-if="status === 'green'">
-                  <h3>{{ relationship.connection.name }}</h3>
-                </div>
-              </div>
-            </div><div class="container">
+            </div>
+            <div class="container">
   <div class="col-md-3"></div>
     <div class="well">
       <div class="jumbotron"><h2>Connection Information</h2>

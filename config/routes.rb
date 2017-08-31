@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/relationships' => "relationships#index"
-      # patch '/relationships/:id' => "relationships#update"
+      get '/relationships/:id' => "relationships#show"
+      patch '/relationships/:id' => "relationships#update"
     end
   end
 
