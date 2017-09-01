@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     el: '#show',
     data: {
       message: 'Hello Vue!',
-      relationship: {}
+      relationship: {step: {}},
+      status: '',
+      statusOptions: ['red', 'yellow', 'green']
     },
     mounted: function() {
       console.log('relationshipId', relationshipId);
@@ -14,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         success: function(response) {
           console.log('response', response);
           this.relationship = response;
+          this.status = this.relationship.user_status;
         }.bind(this)
       });
     },
@@ -22,6 +25,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
     },
     computed: {
 
-    }
+    },
+    watch: {
+      status: function() {
+        console.log('status changed', this.status);
+        Rails.ajax({
+          url: "/api/v1/relationships/" + relationshipId,
+          type: "patch",
+          data: "step_status=" + this.status,
+          success: function(response) {
+            console.log('response', response);
+            this.relationship = response;
+            this.status = this.relationship.user_status;
+          }.bind(this)
+        });
+      }
+    },
   });
 });

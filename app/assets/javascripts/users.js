@@ -45,16 +45,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
           return relationship.user_status === "Green";
         });
       },
-      // yellowRelationships: function() {
-      //   return this.relationships.filter(function(relationship) {
-      //     return relationship.user_status === "Yellow";
-      //   });
+      yellowRelationships: function() {
+        return this.relationships.filter(function(relationship) {
+          return relationship.user_status === "Yellow";
+        });
 
-      // },
+      },
       redRelationships: function() {
         return this.relationships.filter(function(relationship) {
           return relationship.user_status !== "Green" 
-          // && relationship.user_status !== "Yellow";
+          && relationship.user_status !== "Yellow";
         });
       }
     }

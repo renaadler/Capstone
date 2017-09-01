@@ -48,10 +48,9 @@
                                     <img v-bind:src="relationship.connection.image" alt="Picture Not Loading">
                                 </figure>
                                 <div class="social-icons">
-                                    <a href="javascript:void(0)" v-on:click="changeStatus('red', relationship)" class="social-icon" title="Facebook"><i class="fa fa-facebook"></i></a>
-                                    <a href="javascript:void(0)" v-on:click="changeStatus('yellow', relationship)" class="social-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
-                                    <a href="javascript:void(0)" v-on:click="changeStatus('green', relationship)" class="social-icon" title="Github"><i class="fa fa-github"></i></a>
-                                    <!-- <a href="#" class="social-icon" title="Linkedin"><i class="fa fa-linkedin"></i></a> -->
+                                    <a href="javascript:void(0)" v-on:click="changeStatus('red', relationship)" class="social-icon" title="Disconnect"><i class="fa fa-circle" aria-hidden="true" style="color:red"></i></a>
+                                    <a href="javascript:void(0)" v-on:click="changeStatus('yellow', relationship)" class="social-icon" title="Wait"><i class="fa fa-circle" aria-hidden="true" style="color:yellow"></i></a>
+                                    <a href="javascript:void(0)" v-on:click="changeStatus('green', relationship)" class="social-icon" title="Ready"><i class="fa fa-circle" aria-hidden="true" style="color:green"></i></a>
                                 </div><!-- End .social-icons -->
                             </div><!-- End .member-top -->
                             <h3><a v-bind:href="'/relationships/' + relationship.id">{{ relationship.connection.name }}</a></h3> 
@@ -65,7 +64,6 @@
                 </div>
                 <div class="col-md-4">
                 <p>YELLOW RELATIONSHIPS</p>
-
                     <div class="row" v-for="relationship in yellowRelationships">
                         <div class="member">
                             <div class="member-top">
@@ -73,10 +71,9 @@
                                     <img v-bind:src="relationship.connection.image" alt="Picture Not Loading">
                                 </figure>
                                 <div class="social-icons">
-                                    <a href="#" class="social-icon" title="Facebook"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="social-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="social-icon" title="Github"><i class="fa fa-github"></i></a>
-                                    <a href="#" class="social-icon" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+                                    <a href="javascript:void(0)" v-on:click="changeStatus('red', relationship)" class="social-icon" title="Disconnect"><i class="fa fa-circle" aria-hidden="true" style="color:red"></i></a>
+                                    <a href="javascript:void(0)" v-on:click="changeStatus('yellow', relationship)" class="social-icon" title="Wait"><i class="fa fa-circle" aria-hidden="true" style="color:yellow"></i></a>
+                                    <a href="javascript:void(0)" v-on:click="changeStatus('green', relationship)" class="social-icon" title="Ready"><i class="fa fa-circle" aria-hidden="true" style="color:green"></i></a>
                                 </div><!-- End .social-icons -->
                             </div><!-- End .member-top -->
                             <h3><a v-bind:href="'/relationships/' + relationship.id">{{ relationship.connection.name }}</a></h3> 
@@ -98,10 +95,9 @@
                                     <img v-bind:src="relationship.connection.image" alt="Picture Not Loading">
                                 </figure>
                                 <div class="social-icons">
-                                    <a href="#" class="social-icon" title="Facebook"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="social-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="social-icon" title="Github"><i class="fa fa-github"></i></a>
-                                    <a href="#" class="social-icon" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+                                    <a href="javascript:void(0)" v-on:click="changeStatus('red', relationship)" class="social-icon" title="Disconnect"><i class="fa fa-circle" aria-hidden="true" style="color:red"></i></a>
+                                    <a href="javascript:void(0)" v-on:click="changeStatus('yellow', relationship)" class="social-icon" title="Wait"><i class="fa fa-circle" aria-hidden="true" style="color:yellow"></i></a>
+                                    <a href="javascript:void(0)" v-on:click="changeStatus('green', relationship)" class="social-icon" title="Ready"><i class="fa fa-circle" aria-hidden="true" style="color:green"></i></a>
                                 </div><!-- End .social-icons -->
                             </div><!-- End .member-top -->
                             <h3><a v-bind:href="'/relationships/' + relationship.id">{{ relationship.connection.name }}</a></h3> 

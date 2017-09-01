@@ -10,8 +10,9 @@ class Api::V1::RelationshipsController < ApplicationController
     if params[:step_status]
       @relationship.step_status = params[:step_status]
       @relationship.update_step_status
-      render "show.json.jbuilder"
+      @relationship.save
     end
+    render "show.json.jbuilder"
   end
 
   def show
