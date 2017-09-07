@@ -21,6 +21,10 @@ class Relationship < ApplicationRecord
     end
   end
 
+  def connect
+    self.update(connected_status: "Connected", step_status: "Not Yet Updated")
+    inverse_relationship.update(connected_status: "Connected", step_status: "Not Yet Updated")
+  end
   def reconnect
     self.update(connected_status: "Pending", step_id: 1)
     inverse_relationship.update(connected_status: "Pending", step_id: 1) 
@@ -28,8 +32,9 @@ class Relationship < ApplicationRecord
 
   def update_step_status
     if user_status == "Green" && connection_status == "Green"
-      self.update(step_id: step_id + 1, connected_status: "Connected", step_status: "Not Yet Updated")
-      inverse_relationship.update(step_id: step_id + 1, connected_status: "Connected", step_status: "Not Yet Updated")
+      new_step_id = step_id + 1
+      self.update(step_id: new_step_id, connected_status: "Connected", step_status: "Not Yet Updated")
+      inverse_relationship.update(step_id: new_step_id, connected_status: "Connected", step_status: "Not Yet Updated")
     end
     if user_status == "Red" || connection_status == "Red"
       self.update(connected_status: "Disconnected", step_status: "Unavailable")

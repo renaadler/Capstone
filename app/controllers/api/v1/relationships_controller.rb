@@ -11,6 +11,11 @@ class Api::V1::RelationshipsController < ApplicationController
       @relationship.step_status = params[:step_status]
       @relationship.update_step_status
       @relationship.save
+
+      ActionCable.server.broadcast 'activity_channel', {
+        relationship_id: @relationship.id,
+        step_id: @relationship.step.id
+      }
     end
     render "show.json.jbuilder"
   end

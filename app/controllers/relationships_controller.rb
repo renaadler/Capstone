@@ -1,4 +1,5 @@
 class RelationshipsController < ApplicationController
+  
   def index
     if current_user
       if current_user.relationships.count > 0
@@ -20,7 +21,7 @@ class RelationshipsController < ApplicationController
   end
 
   def create
-    Relationship.create(user_id: current_user.id, connection_id: params[:connection_id], connected_status: "Pending", step_id: 1, step_status: "Not Yet Updated")
+    Relationship.create(user_id: current_user.id, connection_id: params[:connection_id], connected_status: "Initiating", step_id: 1, step_status: "Not Yet Updated")
     Relationship.create(user_id: params[:connection_id], connection_id: current_user.id, connected_status: "Pending", step_id: 1, step_status: "Not Yet Updated")
     redirect_to "/"
   end
@@ -61,23 +62,60 @@ class RelationshipsController < ApplicationController
   def pending
     # @relationship = Relationship.find_by(connected_status: "Pending")
     # @connection_id = @relationship.id
-    @pending_relationships = current_user.relationships.where(connected_status: "Pending")
+    # @pending_relationships = current_user.relationships.where(connected_status: "Pending").where.not(id: current_user.id)
+    @pending_relationships = Relationship.where(connected_status: "Pending", user_id: current_user.id)
     render "pending.html.erb"
   end
+
+  # Twilio.configure do |config|
+  #   config.account_sid = AC22b2dbe233dc0027d95bad6081c82727
+  #   config.auth_token = e0a6cc934dc3b1233dbec7f66b250f7d
+  # end
+  # # and then you can create a new client without parameters
+  # @client = Twilio::REST::Client.new
 
   def pending_update
     relationship_id = params[:relationship_id]
     @relationship = Relationship.find_by(id: relationship_id)
-    
-    # @relationship.connected_status = "Connected"
-    # @relationship.inverse_relationship.connected_status = "Connected"
-    # # @relationship.update_step_status
-    # @relationship.save
-    # @relationship.inverse_relationship.save
-    @relationship.update(connected_status: "Connected")
+    @relationship.connect
+    if @relationship.save
+      # put your own credentials here
+      account_sid = 'AC22b2dbe233dc0027d95bad6081c82727'
+      auth_token = 'e0a6cc934dc3b1233dbec7f66b250f7d'
+      # set up a client to talk to the Twilio REST API
+      @client = Twilio::REST::Client.new account_sid, auth_token
+      # alternatively, you can preconfigure the client like so
+      Twilio.configure do |config|
+        config.account_sid = account_sid
+        config.auth_token = auth_token
+      end
+      # and then you can create a new client without parameters
+      @client = Twilio::REST::Client.new
+      @client.api.account.messages.create(
+      from: '+19472224327',
+      to: '+13134919672',
+      body: 'Your invitation has been accepted!'
+      )
+      flash[:success] = "Reconnected!"
+      redirect_to "/relationships/#{@relationship.id}"
+    else
+      flash[:warning] = "Unable to reconnect."
+      render "show.html.erb"
+    end
+  end
+
+  def disconnected
+    @disconnected_relationships = current_user.relationships.where(connected_status: "Disconnected")
+    render "disconnected.html.erb"
+  end
+
+  def reconnect
+    relationship_id = params[:relationship_id]
+    @relationship = Relationship.find_by(id: relationship_id)
+    @relationship.update(connected_status: "Connected", )
     @relationship.inverse_relationship.update(connected_status: "Connected")
 
-    flash[:success] = "Connected!"
+    flash[:success] = "Reconnected!"
     redirect_to "/relationships/#{@relationship.id}"
   end
 end

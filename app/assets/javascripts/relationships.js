@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       relationships: [],
       show: true,
       status: 'yellow',
-      statusOptions: ['red', 'yellow', 'green']
+      statusOptions: ['red', 'yellow', 'green'],
     },
     mounted: function() {
       Rails.ajax({

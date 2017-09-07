@@ -10,44 +10,22 @@
                 </ol>
             </div><!-- End .container-fluid -->
         </div><!-- End .page-header -->
-        <div class="container-fluid">
-            <h2 class="title custom text-center">Connections</h2>
-            <div class="row">
-                <div class="col-md-3 col-xs-6 col-xss-12" v-for="relationship in relationships">
-                    <div class="member">
-                        <div class="member-top">
-                            <figure>
-                                <img v-bind:src="relationship.connection.image" alt="Picture Not Loading">
-                            </figure>
-                            <div class="social-icons" >
-                                <a href="#" class="social-icon" title="Facebook"><i class="fa fa-facebook"></i></a>
-                                <a href="#" class="social-icon" title="Twitter"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="social-icon" title="Github"><i class="fa fa-github"></i></a>
-                                <a href="#" class="social-icon" title="Linkedin"><i class="fa fa-linkedin"></i></a>
-                            </div><!-- End .social-icons -->
-                        </div><!-- End .member-top -->
-                        <h3><a v-bind:href="'/relationships/' + relationship.id">{{ relationship.connection.name }}</a></h3> 
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit osam error quo.</p> -->
-                        <p class="member-title"><small><a v-bind:href="'/relationships/' + relationship.id">Connection: {{ relationship.connected_status }}</small></a></p>
-                        <p class="member-title"><small><a v-bind:href="'/relationships/' + relationship.id">Next Step: {{relationship.step.title}}</small></a></p>
-                        <p class="member-title"><small><a v-bind:href="'/relationships/' + relationship.id">{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</small></a></p>
-                        <p class="member-title"><small><a v-bind:href="'/relationships/' + relationship.id">Your Status:  {{relationship.user_status}}</small></a></p>
-                    </div><!-- End .member -->
-                </div><!-- End .col-md-3 -->
-            </div><!-- End .row -->
-        </div><!-- End .container-fluid -->
+      
 
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                <p>RED RELATIONSHIPS</p>
+                <p>NOT YET UPDATED</p>
                     <div class="row" v-for="relationship in redRelationships">
                         <div class="member">
                             <div class="member-top">
                                 <figure>
                                     <img v-bind:src="relationship.connection.image" alt="Picture Not Loading">
                                 </figure>
-                                <div class="social-icons">
+
+                                <div class="social-icons" v-if="relationship.user_status !== 'Unavailable' && relationship.connected_status !== 'Pending'
+          && relationship.connected_status !== 'Initiating'
+          && relationship.connected_status !== 'Disconnected'">
                                     <a href="javascript:void(0)" v-on:click="changeStatus('red', relationship)" class="social-icon" title="Disconnect"><i class="fa fa-circle" aria-hidden="true" style="color:red"></i></a>
                                     <a href="javascript:void(0)" v-on:click="changeStatus('yellow', relationship)" class="social-icon" title="Wait"><i class="fa fa-circle" aria-hidden="true" style="color:yellow"></i></a>
                                     <a href="javascript:void(0)" v-on:click="changeStatus('green', relationship)" class="social-icon" title="Ready"><i class="fa fa-circle" aria-hidden="true" style="color:green"></i></a>
@@ -108,7 +86,6 @@
                             <p class="member-title"><small><a v-bind:href="'/relationships/' + relationship.id">Your Status:  {{relationship.user_status}}</small></a></p>
                         </div><!-- End .member -->
                     </div><!-- End .col-md-3 -->
-                    <div class="row" v-for="relationship in greenRelationships">{{ relationship.connection.name }}</div>
                 </div>
             </div>
         </div>

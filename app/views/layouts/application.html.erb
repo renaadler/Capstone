@@ -84,109 +84,20 @@
                   </div><!-- End .social-icons -->
 
                   <div class="top-links pull-left">
-                      <a href="/#">Login</a>
-                      <a href="/#">Register</a>
+                      <% if current_user %> 
+                      <a href="/#">Hello <%= current_user.name %></a>
+                      <a href="/logout">Logout</a>
+                      <% else %>
+                      <a href="/signup">Signup</a>
+                      <a href="/login">Login</a>
+
+                      <% end %>
+
                   </div><!-- End .top-links -->
               </div><!-- End .container-fluid -->
           </div><!-- End .header-top -->
 
-          <div class="header-inner">
-              <div class="container-fluid">
-                  <a href="/index.html" class="site-logo" title="Bold - Multipurpose Template">
-                      <img src="/assets/images/logo.png" data-rjs="3" alt="Bold Logo">
-                      <span class="sr-only">Bold</span>
-                  </a>
-
-                  <div class="dropdown header-dropdown cart-dropdown">
-                      <a href="/#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span>
-                              <i class="fa fa-shopping-basket"></i>
-                              <span class="dcart-total-count">2</span>
-                          </span>
-                      </a>
-
-                      <div class="dropdown-menu">
-                          <p>2 item(s) in your cart - <span>$279.00</span></p>
-                          <div class="dcart-products">
-                              <div class="product">
-                                  <figure>
-                                      <a href="/#">
-                                          <img src="/assets/images/products/thumbs/product1.jpg" alt="Product">
-                                      </a>
-                                  </figure>
-                                  <div class="product-meta">
-                                      <h5 class="product-title">
-                                          <a href="/#">Oluptate cumque quo archi deleni.</a>
-                                      </h5>
-                                      <div class="product-price-container">
-                                          <span class="product-price">$180.00</span>
-                                      </div><!-- End .product-price-container -->
-                                      <span class="product-quantity">x 1</span>
-                                  </div><!-- End .product-meta -->
-                                  <a href="/#" class="delete-btn" title="Delete Product"><i class="fa fa-times"></i></a>
-                              </div><!-- End .product -->
-                              <div class="product">
-                                  <figure>
-                                      <a href="/#">
-                                          <img src="/assets/images/products/thumbs/product2.jpg" alt="Product">
-                                      </a>
-                                  </figure>
-                                  <div class="product-meta">
-                                      <h5 class="product-title">
-                                          <a href="/#">Lorem ipsum dolor sit amet consect.</a>
-                                      </h5>
-                                      <div class="product-price-container">
-                                          <span class="old-price">$140.00</span>
-                                          <span class="product-price">$99.00</span>
-                                      </div><!-- End .product-price-container -->
-                                      <span class="product-quantity">x 2</span>
-                                  </div><!-- End .product-meta -->
-                                  <a href="/#" class="delete-btn" title="Delete Product"><i class="fa fa-times"></i></a>
-                              </div><!-- End .product -->
-                          </div><!-- End .dcart-products -->
-
-                          <div class="dcart-action-container">
-                              <div class="dcart-action-info">
-                                  <p>Shipping: <span>$12.00</span></p>
-                                  <p>Tax: <span>Free</span></p>
-                                  <p>Total: <span>$390.00</span></p>
-                              </div><!-- End .dcart-action-info -->
-
-                              <div class="dcart-action">
-                                  <a href="/#" class="btn btn-custom2 btn-sm">View Cart</a>
-                                  <a href="/#" class="btn btn-custom btn-sm">Checkout</a>
-                              </div><!-- End .dcart-action -->
-                          </div><!-- End .dcart-action-container -->
-                      </div><!-- End .dropdown-menu -->
-                  </div><!-- End .cartdropdown -->
-
-                  <div class="header-info-boxes">
-                      <div class="header-info-box">
-                          <div class="header-info-icon">
-                              <i class="fa fa-truck"></i>
-                          </div><!-- End .header-info-icon -->
-                          <div class="info-box-title">Free Delivery</div>
-                          <p>No charge for shipping</p>
-                      </div><!-- End .header-info-box -->
-
-                      <div class="header-info-box">
-                          <div class="header-info-icon">
-                              <i class="fa fa-support"></i>
-                          </div><!-- End .header-info-icon -->
-                          <div class="info-box-title">7/24 Free Support</div>
-                          <p>We provide live chat support</p>
-                      </div><!-- End .header-info-box -->
-
-                      <div class="header-info-box">
-                          <div class="header-info-icon">
-                              <i class="fa fa-phone"></i>
-                          </div><!-- End .header-info-icon -->
-                          <div class="info-box-title">Call Us</div>
-                          <p>+1 (333) 221 22 33</p>
-                      </div><!-- End .header-info-box -->
-                  </div><!-- End header-info-boxes -->
-              </div><!-- End .container-fluid -->
-          </div><!-- End .header-inner -->
+          
 
           <div class="header-bottom">
               <div class="container-fluid">
@@ -202,65 +113,11 @@
                   <div class="collapse navbar-collapse" id="main-nav-container">
                       <ul class="nav navbar-nav">
                           <li class="dropdown active">
-                              <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Home<span class="angle"></span></a>
-                              <ul class="dropdown-menu" role="menu">
-                                  <li class="dropdown">
-                                      <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Business<span class="angle"></span></a>
-                                      <ul class="dropdown-menu" role="menu">
-                                          <li><a href="/index.html">Business - Version 1</a></li>
-                                          <li><a href="/index2.html">Business - Version 2</a></li>
-                                          <li><a href="/index3.html">Business - Version 3</a></li>
-                                          <li><a href="/index4.html">Business - Version 4</a></li>
-                                          <li><a href="/index5.html">Business - Version 5</a></li>
-                                          <li><a href="/index6.html">Business - Version 6</a></li>
-                                          <li><a href="/index7.html">Business - Version 7</a></li>
-                                          <li><a href="/index8.html">Business - Version 8</a></li>
-                                          <li><a href="/index9.html">Business - Version 9</a></li>
-                                          <li><a href="/index10.html">Business - Version 10</a></li>
-                                      </ul>
-                                  </li>
-                                  <li class="dropdown">
-                                      <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Shop<span class="angle"></span></a>
-                                      <ul class="dropdown-menu" role="menu">
-                                          <li><a href="/index-shop.html">Shop - Version 1</a></li>
-                                          <li><a href="/index-shop2.html">Shop - Version 2</a></li>
-                                          <li><a href="/index-shop3.html">Shop - Version 3</a></li>
-                                      </ul>
-                                  </li>
-                                  <li class="dropdown">
-                                      <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog<span class="angle"></span></a>
-                                      <ul class="dropdown-menu" role="menu">
-                                          <li><a href="/index-blog.html">Blog - Version 1</a></li>
-                                          <li><a href="/index-blog2.html">Blog - Version 2</a></li>
-                                      </ul>
-                                  </li>
-                                  <li class="dropdown">
-                                      <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Portfolio<span class="angle"></span></a>
-                                      <ul class="dropdown-menu" role="menu">
-                                          <li><a href="/index-portfolio.html">Portfolio - Version 1</a></li>
-                                          <li><a href="/index-portfolio2.html">Portfolio - Version 2</a></li>
-                                          <li><a href="/index-portfolio3.html">Portfolio - Version 3</a></li>
-                                          <li><a href="/index-portfolio4.html">Portfolio - Version 4</a></li>
-                                      </ul>
-                                  </li>
-                                  <li class="dropdown">
-                                      <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Photography<span class="angle"></span></a>
-                                      <ul class="dropdown-menu" role="menu">
-                                          <li><a href="/index-photography.html">Photography - Version 1</a></li>
-                                          <li><a href="/index-photography2.html">Photography - Version 2</a></li>
-                                      </ul>
-                                  </li>
-                                  <li class="dropdown">
-                                      <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Onepages<span class="angle"></span></a>
-                                      <ul class="dropdown-menu" role="menu">
-                                          <li><a href="/index-onepage.html">Onepage - Version 1</a></li>
-                                          <li><a href="/index-onepage2.html">Onepage - Version 2</a></li>
-                                      </ul>
-                                  </li>
-                              </ul>
+                              <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">FollowUp<span class="angle"></span></a>
+                              
                           </li>
                           <li class="dropdown">
-                              <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages<span class="angle"></span></a>
+                              <a href="/relationships" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Relationships<span class="angle"></span></a>
                               <ul class="dropdown-menu" role="menu">
                                   <li class="dropdown">
                                       <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About Pages<span class="angle"></span></a>
@@ -298,7 +155,7 @@
                               </ul>
                           </li>
                           <li class="dropdown megamenu-container">
-                              <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mega<span class="angle"></span></a>
+                              <a href="/users" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Users<span class="angle"></span></a>
                               <div class="dropdown-menu megamenu" role="menu">
                                   <div class="container-fluid">
                                       <div class="row">
@@ -366,7 +223,7 @@
                               </div><!-- End .megamenu -->
                           </li>
                           <li class="dropdown">
-                              <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Shop<span class="angle"></span></a>
+                              <a href="/pending" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pending<span class="angle"></span></a>
                               <ul class="dropdown-menu" role="menu">
                                   <li class="dropdown">
                                       <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Category<span class="angle"></span></a>

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get "/pending" => "relationships#pending"
   patch "/pending" => "relationships#pending_update"
+  get "/disconnected" => "relationships#disconnected"
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"
   get "/logout" => "sessions#destroy"
@@ -27,5 +28,4 @@ Rails.application.routes.draw do
   post "/relationships" => "relationships#create"
   get "/relationships/:id" => "relationships#show"
   patch "/relationships/:id" => "relationships#update"
-
 end

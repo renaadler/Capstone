@@ -19,6 +19,27 @@ document.addEventListener("DOMContentLoaded", function(event) {
           this.status = this.relationship.user_status;
         }.bind(this)
       });
+      var that = this;
+      App.activity = App.cable.subscriptions.create("ActivityChannel", {
+        connected: function() {
+          // Called when the subscription is ready for use on the server
+        },
+
+        disconnected: function() {
+          // Called when the subscription has been terminated by the server
+        },
+
+        received: function(data) {
+          // Called when there's incoming data on the websocket for this channel
+          // app.__vue__.messages.unshift(data);
+          console.log('actioncable', data);
+          // var relationship = app.__vue__.relationship;
+          if (that.relationship.id === data.relationship_id) {
+            that.relationship.step.id = data.step_id;
+          }
+        }
+      });
+
     },
     methods: {
 

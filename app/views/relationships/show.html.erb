@@ -1,119 +1,94 @@
-
 <script type="text/javascript">
   relationshipId = <%= @relationship.id %>;
 </script>
             <div class="row" id="show" style="height: 750px">
+              <!-- Start Column 1 -->
               <div class="col-md-3" style="background-color: #8D6BC9; height: 100%">
-              <h2 style="color:#ffffff">Step One</h2>
-                <div class="info" v-if="relationship.step.id === 1">
-                  <h3>Name: {{ relationship.connection.name }}</h3>
-                  <p>Connection: {{ relationship.connected_status }}</p>
-                  <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
-                  <p>Next Step: {{relationship.step.title}}</p>
-                  <p>{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</p>
-                  <div class="form-group">
-                    <p>Your Status:  
-                      <select v-model="status">
-                        <option value='Not Yet Updated'>Not Yet Updated</option>
-                        <option value='Red'>Red</option>
-                        <option value='Yellow'>Yellow</option>
-                        <option value='Green'>Green</option>
-                      </select>
-                   </p>
+                <h2 style="color:#ffffff">Step One</h2>
+                  <div class="info" v-if="relationship.step.id === 1" transition name="bounce">
+                    <h3>Name: {{ relationship.connection.name }}</h3>
+                    <p>Connection: {{ relationship.connected_status }}</p>
+                    <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
+                    <p>Next Step: {{relationship.step.title}}</p>
+                    <p>{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</p>
+                    <div class="form-group">
+                      <p>Your Status:  
+                        <select v-model="status">
+                          <option value='Not Yet Updated'>Not Yet Updated</option>
+                          <option value='Red'>Red</option>
+                          <option value='Yellow'>Yellow</option>
+                          <option value='Green'>Green</option>
+                        </select>
+                     </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+                <!-- End Column 1 -->
+              <!-- Start Column 2 -->
               <div class="col-md-3" style="background-color: #805BC3; height: 100%">
-              <h2 style="color:#ffffff">Step Two</h2>
-                <div class="info" v-if="relationship.step.id === 2">
-                  <h3>Name: {{ relationship.connection.name }}</h3>
-                  <p>Connection: {{ relationship.connected_status }}</p>
-                  <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
-                  <p>Next Step: {{relationship.step.title}}</p>
-                  <p>{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</p>
-                  <div class="form-group">
-                    <p>Your Status:  
-                      <select v-model="status">
-                        <option value='Not Yet Updated'>Not Yet Updated</option>
-                        <option value='Red'>Red</option>
-                        <option value='Yellow'>Yellow</option>
-                        <option value='Green'>Green</option>
-                      </select>
-                    </p>
+                <h2 style="color:#ffffff">Step Two</h2>
+                  <div class="info" v-if="relationship.step.id === 2">
+                    <h3>Name: {{ relationship.connection.name }}</h3>
+                    <p>Connection: {{ relationship.connected_status }}</p>
+                    <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
+                    <p>Next Step: {{relationship.step.title}}</p>
+                    <p>{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</p>
+                    <div class="form-group">
+                      <p>Your Status:  
+                        <select v-model="status">
+                          <option value='Not Yet Updated'>Not Yet Updated</option>
+                          <option value='Red'>Red</option>
+                          <option value='Yellow'>Yellow</option>
+                          <option value='Green'>Green</option>
+                        </select>
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+                <!-- End Column 2 -->
+              <!-- Start Column 3 -->
               <div class="col-md-3" style="background-color: #744BBD; height: 100%">
-              <h2 style="color:#ffffff">Step Three</h2>
-                <div class="info" v-if="relationship.step.id === 3">
-                  <h3>Name: {{ relationship.connection.name }}</h3>
-                  <p>Connection: {{ relationship.connected_status }}</p>
-                  <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
-                  <p>Next Step: {{relationship.step.title}}</p>
-                  <p>{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</p>
-                  <div class="form-group">
-                    <p>Your Status:  
-                      <select v-model="status">
-                        <option value='Not Yet Updated'>Not Yet Updated</option>
-                        <option value='Red'>Red</option>
-                        <option value='Yellow'>Yellow</option>
-                        <option value='Green'>Green</option>
-                      </select>
-                    </p>
+                <h2 style="color:#ffffff">Step Three</h2>
+                  <div class="info" v-if="relationship.step.id === 3">
+                    <h3>Name: {{ relationship.connection.name }}</h3>
+                    <p>Connection: {{ relationship.connected_status }}</p>
+                    <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
+                    <p>Next Step: {{relationship.step.title}}</p>
+                    <p>{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</p>
+                    <div class="form-group">
+                      <p>Your Status:  
+                        <select v-model="status">
+                          <option value='Not Yet Updated'>Not Yet Updated</option>
+                          <option value='Red'>Red</option>
+                          <option value='Yellow'>Yellow</option>
+                          <option value='Green'>Green</option>
+                        </select>
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+                <!-- End Column 3 -->
+              <!-- Start Column 4 -->
               <div class="col-md-3" style="background-color: #673AB7; height: 100%">
-              <h2 style="color:#ffffff">Step Four</h2>
-                <div class="info" v-if="relationship.step.id === 4">
-                  <h3>Name: {{ relationship.connection.name }}</h3>
-                  <p>Connection: {{ relationship.connected_status }}</p>
-                  <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
-                  <p>Next Step: {{relationship.step.title}}</p>
-                  <p>{{relationship.connection.name}}'s Status: {{relationship.connection_status}}</p>
-                  <div class="form-group">
-                    <p>Your Status:  
-                      <select v-model="status">
-                        <option value='Not Yet Updated'>Not Yet Updated</option>
-                        <option value='Red'>Red</option>
-                        <option value='Yellow'>Yellow</option>
-                        <option value='Green'>Green</option>
-                      </select>
-                    </p>
+                <h2 style="color:#ffffff">Step Four</h2>
+                  <div class="info" v-if="relationship.step.id === 4">
+                    <h3>Name: {{ relationship.connection.name }}</h3>
+                    <p>Connection: {{ relationship.connected_status }}</p>
+                    <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
+                    <p>Next Step: {{relationship.step.title}}</p>
+                    <p>{{relationship.connection.name}}'s Status: {{relationship.connection_status}}</p>
+                    <div class="form-group">
+                      <p>Your Status:  
+                        <select v-model="status">
+                          <option value='Not Yet Updated'>Not Yet Updated</option>
+                          <option value='Red'>Red</option>
+                          <option value='Yellow'>Yellow</option>
+                          <option value='Green'>Green</option>
+                        </select>
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-                   <p v-if="relationship.connected_status == 'Disconnected'"></p> 
-              
-              
+                <!-- End Column 4 -->
             </div>
-            <div class="container">
-  <div class="col-md-3"></div>
-    <div class="well">
-      <div class="jumbotron"><h2>Connection Information</h2>
-        <h3>First Name: <%= @relationship.connection.name %></h3>
-        <p><img src="<%= @relationship.connection.image %>" width: "100%"/></p>
-        <p>Connection: <%= @relationship.connected_status %></p>
-        <p>Next Step: <%= @relationship.step.title %></p>
-        <p><%= @relationship.connection.name %>'s Status: <%= @relationship.connection_status %></p>
-        <%= form_tag "/api/v1/relationships/#{@relationship.id}", method: "patch" do %>
-          <div class="form-group">
-          <p>Your Status:
-            <% if @relationship.connected_status == "Disconnected" %>
-              <%= form_tag "/relationships/#{@relationship.id}", method: "patch", style: "display: inline" do %>
-              <input type="hidden" name="connection_id" value="<%= @relationship.user_id %>">
-              <input type="hidden" name="connected_status" value="<%= @relationship.connected_status%>">
-              <input type="submit" value="Reconnect" class="btn btn-default">
-            <% end %>
-            <% else %>
-              <select name="step_status">
-                <%= options_for_select([['Green'], ['Yellow'], ['Red']], @relationship.step_status) %>
-              </select>
-              <input type="submit" name="Update Status">
-            <% end %>
-          </p>
-          </div>
-        <% end %>
-        </div>
-      </div>
-    </div>
+           
