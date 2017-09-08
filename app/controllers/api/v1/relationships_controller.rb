@@ -35,7 +35,8 @@ class Api::V1::RelationshipsController < ApplicationController
       ActionCable.server.broadcast 'activity_channel', {
         relationship_id: @relationship.inverse_relationship.id,
         step_id: @relationship.step.id,
-        step_status: @relationship.step_status
+        step_status: @relationship.step_status,
+        inverse_step_status: @relationship.inverse_relationship.step_status
       }
     end
     render "show.json.jbuilder"
