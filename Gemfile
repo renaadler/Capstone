@@ -32,7 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'twilio-ruby', '~> 5.2.1'
 
-gem 
+gem 'rufus-scheduler'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

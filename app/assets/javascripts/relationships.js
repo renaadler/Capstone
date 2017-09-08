@@ -29,14 +29,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if (status === 'green') {
           relationship.user_status = 'Green';
         }
-        // Rails.ajax({
-        //   url: "/api/v1/relationships",
-        //   type: "patch",
-        //   success: function(response) {
-        //     console.log('Hello');
-        //     // @user.status = status;
-        //   }
-        // });
+        if (status === 'red') {
+          relationship.user_status = 'Red';
+        }
+        Rails.ajax({
+          url: "/api/v1/relationships/" + relationship.id,
+          type: "patch",
+          data: "step_status=" + relationship.user_status,
+          success: function(response) {
+            console.log(response);
+            // this.relationship.user_status = status;
+          }.bind(this)
+        });
       }
     },
     computed: {

@@ -46,6 +46,26 @@ class Relationship < ApplicationRecord
 
       # self.save
       # inverse_relationship.save
-    end 
+    end
+     # Rufus::Scheduler.singleton.in '10s' do
+     #    # put your own credentials here
+     #    account_sid = 'AC22b2dbe233dc0027d95bad6081c82727'
+     #    auth_token = 'e0a6cc934dc3b1233dbec7f66b250f7d'
+     #    # set up a client to talk to the Twilio REST API
+     #    @client = Twilio::REST::Client.new account_sid, auth_token
+     #    # alternatively, you can preconfigure the client like so
+     #    Twilio.configure do |config|
+     #      config.account_sid = account_sid
+     #      config.auth_token = auth_token
+     #    end
+     #    # and then you can create a new client without parameters
+     #    @client = Twilio::REST::Client.new
+     #    @client.api.account.messages.create(
+     #      from: '+19472224327',
+     #      to: '+13134919672',
+     #      body: 'This is in my model'
+     #    )
+     #    # Rails.logger.info "time flies, it's now #{Time.now}"
+     #  end 
   end
 end

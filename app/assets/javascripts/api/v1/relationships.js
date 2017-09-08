@@ -36,19 +36,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
           // var relationship = app.__vue__.relationship;
           if (that.relationship.id === data.relationship_id) {
             that.relationship.step.id = data.step_id;
+            that.relationship.connection_status = data.step_status;
           }
         }
       });
 
     },
     methods: {
-
-    },
-    computed: {
-
-    },
-    watch: {
-      status: function() {
+      updateStatus: function(event) {
         console.log('status changed', this.status);
         Rails.ajax({
           url: "/api/v1/relationships/" + relationshipId,
@@ -61,6 +56,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
           }.bind(this)
         });
       }
+    },
+    computed: {
+
+    },
+    watch: {
+      // status: function() {
+      //   console.log('status changed', this.status);
+      //   Rails.ajax({
+      //     url: "/api/v1/relationships/" + relationshipId,
+      //     type: "patch",
+      //     data: "step_status=" + this.status,
+      //     success: function(response) {
+      //       console.log('response', response);
+      //       this.relationship = response;
+      //       this.status = this.relationship.user_status;
+      //     }.bind(this)
+      //   });
+      // }
     },
   });
 });

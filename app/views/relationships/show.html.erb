@@ -3,15 +3,17 @@
 </script>
             <div class="row" id="show" style="height: 750px">
               <!-- Start Column 1 -->
+              
               <div class="col-md-3" style="background-color: #8D6BC9; height: 100%">
                 <h2 style="color:#ffffff">Step One</h2>
-                  <div class="info" v-if="relationship.step.id === 1" transition name="bounce">
+                <transition name="bounce">
+                  <div class="info" v-if="relationship.step.id === 1">
                     <h3>Name: {{ relationship.connection.name }}</h3>
                     <p>Connection: {{ relationship.connected_status }}</p>
                     <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
                     <p>Next Step: {{relationship.step.title}}</p>
+                    <div class="form-group" v-if="relationship.connected_status === 'Connected'">
                     <p>{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</p>
-                    <div class="form-group">
                       <p>Your Status:  
                         <select v-model="status">
                           <option value='Not Yet Updated'>Not Yet Updated</option>
@@ -20,14 +22,18 @@
                           <option value='Green'>Green</option>
                         </select>
                      </p>
+                     <button v-on:click="updateStatus()">Update Status</button>
                     </div>
                   </div>
+                  </transition>
                 </div>
+                 
                 <!-- End Column 1 -->
               <!-- Start Column 2 -->
               <div class="col-md-3" style="background-color: #805BC3; height: 100%">
                 <h2 style="color:#ffffff">Step Two</h2>
-                  <div class="info" v-if="relationship.step.id === 2">
+              <transition name="bounce">
+                  <div class="info" transition="bounce" v-if="relationship.step.id === 2">
                     <h3>Name: {{ relationship.connection.name }}</h3>
                     <p>Connection: {{ relationship.connected_status }}</p>
                     <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
@@ -42,13 +48,17 @@
                           <option value='Green'>Green</option>
                         </select>
                       </p>
+                     <button v-on:click="updateStatus()">Update Status</button>
                     </div>
                   </div>
                 </div>
+                </transition>
+
                 <!-- End Column 2 -->
               <!-- Start Column 3 -->
               <div class="col-md-3" style="background-color: #744BBD; height: 100%">
                 <h2 style="color:#ffffff">Step Three</h2>
+              <transition name="bounce">
                   <div class="info" v-if="relationship.step.id === 3">
                     <h3>Name: {{ relationship.connection.name }}</h3>
                     <p>Connection: {{ relationship.connected_status }}</p>
@@ -64,13 +74,17 @@
                           <option value='Green'>Green</option>
                         </select>
                       </p>
+                     <button v-on:click="updateStatus()">Update Status</button>
+
                     </div>
                   </div>
                 </div>
+                </transition>
                 <!-- End Column 3 -->
               <!-- Start Column 4 -->
               <div class="col-md-3" style="background-color: #673AB7; height: 100%">
                 <h2 style="color:#ffffff">Step Four</h2>
+              <transition name="bounce">
                   <div class="info" v-if="relationship.step.id === 4">
                     <h3>Name: {{ relationship.connection.name }}</h3>
                     <p>Connection: {{ relationship.connected_status }}</p>
@@ -86,9 +100,12 @@
                           <option value='Green'>Green</option>
                         </select>
                       </p>
+                     <button v-on:click="updateStatus()">Update Status</button>
+
                     </div>
                   </div>
                 </div>
+                </transition>
                 <!-- End Column 4 -->
             </div>
            
