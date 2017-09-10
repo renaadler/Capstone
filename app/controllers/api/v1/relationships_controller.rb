@@ -14,8 +14,8 @@ class Api::V1::RelationshipsController < ApplicationController
       # puts "somereallylongobnoxiousstring"
       Rufus::Scheduler.singleton.in '3s' do
         # put your own credentials here
-        account_sid = 'AC22b2dbe233dc0027d95bad6081c82727'
-        auth_token = 'e0a6cc934dc3b1233dbec7f66b250f7d'
+        account_sid =  "#{ENV["twilio_account_sid"]}"
+        auth_token = "#{ENV["twilio_auth_token"]}"
         # set up a client to talk to the Twilio REST API
         @client = Twilio::REST::Client.new account_sid, auth_token
         # alternatively, you can preconfigure the client like so

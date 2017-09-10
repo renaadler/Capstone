@@ -34,6 +34,9 @@ gem 'twilio-ruby', '~> 5.2.1'
 
 gem 'rufus-scheduler'
 
+gem 'figaro'
+# for API key storage
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass', '~> 3.3.6'
