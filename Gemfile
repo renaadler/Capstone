@@ -37,6 +37,7 @@ gem 'rufus-scheduler'
 gem 'figaro'
 # for API key storage
 
+gem 'unirest', '~> 1.1.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass', '~> 3.3.6'

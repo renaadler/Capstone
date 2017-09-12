@@ -1,4 +1,3 @@
-
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
@@ -28,4 +27,8 @@ Rails.application.routes.draw do
   post "/relationships" => "relationships#create"
   get "/relationships/:id" => "relationships#show"
   patch "/relationships/:id" => "relationships#update"
+
+  get "/linkedin" => "users#linkedin"
+  get "/register" => "users#register"
+  get "/linkedin_callback" => "users#linkedin_callback"
 end

@@ -79,7 +79,14 @@ class RelationshipsController < ApplicationController
     @relationship = Relationship.find_by(id: relationship_id)
     @relationship.connect
     if @relationship.save
-      
+      ActionCable.server.broadcast 'activity_channel', {
+        relationship_id: @relationship.inverse_relationship.id,
+        step_id: @relationship.step.id,
+        step_status: @relationship.step_status,
+        inverse_step_status: @relationship.inverse_relationship.step_status,
+        next_step: @relationship.step.title,
+        inverse_next_step: @relationship.inverse_relationship.step.title
+      }
       flash[:success] = "Reconnected!"
       redirect_to "/relationships/#{@relationship.id}"
     else

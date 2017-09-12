@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           if (that.relationship.id === data.relationship_id) {
             that.relationship.step.id = data.step_id;
             that.relationship.connection_status = data.step_status;
+            that.relationship.step.title = data.next_step;
             that.status = data.inverse_step_status;
           }
         }

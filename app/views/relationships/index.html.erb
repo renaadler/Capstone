@@ -1,16 +1,25 @@
 <div id="wrapper">
     <div class="main" id="relationship">
-        <div class="page-header largest parallax custom text-center mb0" style="background-image:url(assets/images/page-header-bg.jpg)" data-0="background-position:50% 50%;" data-top-bottom="background-position:50% 100%">
+        <div class="page-header largest parallax custom text-center mb0" style="background-image:url(assets/images/relationships_index.jpg)" data-0="background-position:50% 50%;" data-top-bottom="background-position:50% 100%">
             <div class="container-fluid">
-                <h1 data-300-top="opacity:1;transform:scale(1);" data-top-bottom="opacity:0.4;transform:scale(1.9);">About Us</h1>
+                <h1 data-300-top="opacity:1;transform:scale(1);" data-top-bottom="opacity:0.4;transform:scale(1.9);">My Relationships</h1>
                 <ol class="breadcrumb" data-300-top="opacity:1;" data-top-bottom="opacity:0.4;">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Pages</a></li>
-                    <li class="active">About Us</li>
+                    <li><a href="/relationships">Relationships</a></li>
+                    <li><a href="/pending">Pending</a></li>
+                    <li><a href="/disconnected">Disconnected</a></li>
                 </ol>
             </div><!-- End .container-fluid -->
         </div><!-- End .page-header -->
-      
+
+
+       <div class="container-fluid fullwidth">
+        <ul id="portfolio-filter">
+            <li class="active"><a href="#" data-filter="*">All</a></li>
+            <li><a href="#" data-filter=".not-yet-updated">Not Yet Updated</a></li>
+            <li><a href="#" data-filter=".marketing">Yellow</a></li>
+            <li><a href="#" data-filter=".video">Green</a></li>
+        </ul>
+    </div><!-- End .container-fluid -->
 
         <div class="container-fluid">
             <div class="row">
@@ -20,7 +29,21 @@
                         <div class="member">
                             <div class="member-top">
                                 <figure>
+                                <div class="fentry-content">
+                                    
+                            <h3><a v-bind:href="'/relationships/' + relationship.id">{{ relationship.connection.name }}</a></h3> 
+                                <div class="fentry-meta">
+                                        <span>
+                                            <i class="fa fa-calendar"></i>
+                                            June 19, 2016
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-user"></i>
+                                            <a href="#">Eon</a>
                                     <img v-bind:src="relationship.connection.image" alt="Picture Not Loading">
+                                        </span>
+                                    </div><!-- End .fentry-meta -->
+                            </div>
                                 </figure>
 
                                 <div class="social-icons" v-if="relationship.user_status !== 'Unavailable' && relationship.connected_status !== 'Pending'
@@ -31,12 +54,19 @@
                                     <a href="javascript:void(0)" v-on:click="changeStatus('green', relationship)" class="social-icon" title="Ready"><i class="fa fa-circle" aria-hidden="true" style="color:green"></i></a>
                                 </div><!-- End .social-icons -->
                             </div><!-- End .member-top -->
+                            <div class="fentry-content">
+                                    
                             <h3><a v-bind:href="'/relationships/' + relationship.id">{{ relationship.connection.name }}</a></h3> 
+                            </div>
+
                             <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit osam error quo.</p> -->
                             <p class="member-title"><small><a v-bind:href="'/relationships/' + relationship.id">Connection: {{ relationship.connected_status }}</small></a></p>
                             <p class="member-title"><small><a v-bind:href="'/relationships/' + relationship.id">Next Step: {{relationship.step.title}}</small></a></p>
                             <p class="member-title"><small><a v-bind:href="'/relationships/' + relationship.id">{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</small></a></p>
                             <p class="member-title"><small><a v-bind:href="'/relationships/' + relationship.id">Your Status:  {{relationship.user_status}}</small></a></p>
+                            <div class="portfolio-tags">
+                                <a href="#">Not Yet Updated</a>,
+                            </div><!-- End .portfolio-tags -->
                         </div><!-- End .member -->
                     </div><!-- End .col-md-3 -->
                 </div>

@@ -26,7 +26,7 @@ class Relationship < ApplicationRecord
     inverse_relationship.update(connected_status: "Connected", step_status: "Not Yet Updated")
   end
   def reconnect
-    self.update(connected_status: "Pending", step_id: 1)
+    self.update(connected_status: "Initiating", step_id: 1)
     inverse_relationship.update(connected_status: "Pending", step_id: 1) 
   end
 

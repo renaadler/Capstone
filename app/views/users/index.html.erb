@@ -1,15 +1,19 @@
 <body>
 <div class="main">
-    <div class="page-header largest parallax custom text-center" style="background-image:url(assets/images/page-header-bg.jpg)" data-0="background-position:50% 50%;" data-top-bottom="background-position:50% 100%">
+    <div class="page-header largest parallax custom text-center" style="background-image:url(assets/images/users_index.jpeg)" data-0="background-position:50% 50%;" data-top-bottom="background-position:50% 100%">
         <div class="container-fluid">
-            <h1 data-300-top="opacity:1;transform:scale(1);" data-top-bottom="opacity:0.4;transform:scale(1.9);">Portfolio</h1>
+            <h1 data-300-top="opacity:1;transform:scale(1);" data-top-bottom="opacity:0.4;transform:scale(1.9);">All Users</h1>
             <ol class="breadcrumb" data-300-top="opacity:1;" data-top-bottom="opacity:0.4;">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Pages</a></li>
-                <li class="active">Portfolio</li>
+                <li><a href="/relationships">Relationships</a></li>
+                <li><a href="/pending">Pending</a></li>
+                <li class="active">All Users</li>
             </ol>
         </div><!-- End .container-fluid -->
     </div><!-- End .page-header -->
+    
+    <%= @linkedin_users["lasttName"] %>
+    <a href="<%= @linkedin_users["siteStandardProfileRequest"]["url"] %>"><%= @linkedin_users["firstName"] %>'s LinkedIn Page</a>
+
 
     <div class="container-fluid fullwidth">
         <ul id="portfolio-filter">
@@ -26,7 +30,7 @@
     <% @users.each do |user| %>
     <div class="portfolio-item portfolio-anim web-design wordpress">
                         <figure>
-                            <img src="<%= user.image %>" alt="Portfolio Name">
+                            <img class="pics" src="<%= user.image %>" alt="Portfolio Name">
                             <figcaption>
                                 <a href="assets/images/portfolio/grid/item1.jpg" data-thumb="assets/images/portfolio/grid/item1.jpg" class="zoom-btn"><i class="fa fa-search"></i></a>
                             </figcaption>
@@ -57,4 +61,13 @@
 <script src="assets/js/plugins.min.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
-</html>
+
+
+<style type="text/css">
+    .pics {
+        max-width: 100%;
+        max-height: 400px;
+        min-width: 100%;
+        min-height: 390px;
+    }
+</style>
