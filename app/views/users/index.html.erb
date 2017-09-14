@@ -3,18 +3,13 @@
 <div class="page-header largest largest-top parallax text-center" style="background-image:url(assets/images/users_index.jpeg)" data-0="background-position:50% 50%;" data-top-bottom="background-position:50% 100%">
             <div class="container-fluid">
                 <h1>Users</h1>
-                <ol class="breadcrumb">
-                    <li><a href="/relationships">Relationships</a></li>
-                    <li><a href="/pending">Pending</a></li>
-                    <li class="active">Users</li>
-                </ol>
             </div><!-- End .container -->
         </div><!-- End .page-header -->
     <div id="portfolio-item-container" class="popup-gallery max-col-3" data-layoutmode="fitRows">
     <% @users.each do |user| %>
     <div class="portfolio-item portfolio-anim web-design wordpress">
                         <figure>
-                            <img class="pics" src="<%= user.image %>" alt="Portfolio Name">
+                            <img style="object-fit: cover; width:100%; height:350px;" src="<%= user.image %>" alt="Portfolio Name">
                             <figcaption>
                                 <a href="assets/images/portfolio/grid/item1.jpg" data-thumb="assets/images/portfolio/grid/item1.jpg" class="zoom-btn"><i class="fa fa-search"></i></a>
                             </figcaption>

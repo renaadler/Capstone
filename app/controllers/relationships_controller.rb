@@ -79,7 +79,13 @@ class RelationshipsController < ApplicationController
     @relationship = Relationship.find_by(id: relationship_id)
     @relationship.connect
     if @relationship.save
-      ActionCable.server.broadcast 'activity_channel', {
+      flash[:success] = "Reconnected!"
+      redirect_to "/relationships/#{@relationship.id}"
+    else
+      flash[:warning] = "Unable to reconnect."
+      render "show.html.erb"
+    end
+    ActionCable.server.broadcast 'activity_channel', {
         relationship_id: @relationship.inverse_relationship.id,
         step_id: @relationship.step.id,
         step_status: @relationship.step_status,
@@ -87,12 +93,6 @@ class RelationshipsController < ApplicationController
         next_step: @relationship.step.title,
         inverse_next_step: @relationship.inverse_relationship.step.title
       }
-      flash[:success] = "Reconnected!"
-      redirect_to "/relationships/#{@relationship.id}"
-    else
-      flash[:warning] = "Unable to reconnect."
-      render "show.html.erb"
-    end
   end
 
   def disconnected

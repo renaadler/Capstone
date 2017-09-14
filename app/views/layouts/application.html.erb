@@ -42,9 +42,9 @@
       <header class="header header2 transparent sticky-header animated-dropdown ttb-dropdown">
           <div class="header-inner">
               <div class="container-fluid">
-                  <a href="index.html" class="site-logo" title="Bold - Multipurpose Template">
-                      <img src="assets/images/logo.png" data-rjs="3" alt="Bold Logo">
-                      <span class="sr-only">Bold</span>
+                  <a href="/" class="site-logo" title="Bold - Multipurpose Template">
+                      <img src="assets/images/logo.png" data-rjs="3" alt="FollowUp">
+                      <span class="sr-only">FollowUp</span>
                   </a>
 
                   <div class="dropdown header-dropdown cart-dropdown">
@@ -138,7 +138,15 @@
                   <div class="footer-right">
                       <ul class="footer-menu">
                           <li class="active"><a href="/">FollowUp</a></li>
-                          <li><a href="/Linkedin">Sign Up With LinkedIn</a></li>
+                          <% if @linkedin_users %>   
+                            <li>
+                              <a href="<%= @linkedin_users['siteStandardProfileRequest']['url'] %>">
+                                <%= @linkedin_users['firstName']%>'s LinkedIn Page
+                              </a> 
+                            </li>
+                          <% else %>
+                          <li><a href="/linkedin">Sign Up With LinkedIn</a></li>
+                          <% end %> 
                           <li><a href="/users">All Users</a></li>
                       </ul>
                       <p class="copyright"><strong>FollowUp</strong> - All rights reserved - 2017</p>
@@ -146,6 +154,75 @@
               </div><!-- End .container-fluid -->
           </div><!-- End .footer-bottom -->
       </footer><!-- End .footer -->
+      <!-- Modal Login Form-->
+                            <div class="modal fade" id="modal-login-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+
+                                <%= form_tag "/login", method: :post do %>
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            <h3 class="modal-title" id="myModalLabel1">Login Form</h3>
+                                            </div><!-- End .modal-header -->
+                                            <div class="modal-body">
+                                            
+                                                <div class="form-group">
+                                                    <label for="email2" class="form-label">Email<span class="required">*</span></label>
+                                                    <input type="email" name="email" id="email2" class="form-control" placeholder="Email" required>
+                                                </div><!-- End .form-group -->
+                                                <div class="form-group">
+                                                    <label for="password2" class="form-label">Password<span class="required">*</span></label>
+                                                    <input type="password" name="password" id="password2" class="form-control" placeholder="Password">
+                                                </div><!-- End .form-group -->
+                                                                            
+                                            </div><!-- End .modal-body -->
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-black" data-dismiss="modal">Close</button>
+                                            <button class="btn btn-custom">Login</button>
+                                            </div>
+                                            <% end %><!-- End .modal-footer -->
+                                        </div><!-- End .modal-content -->
+                                    </div><!-- End .modal-dialog -->
+                                </form>
+                            </div><!-- End .modal -->
+
+
+                           
+                            
+                          
+                            <!-- Modal Contact Form-->
+                            <div class="modal fade" id="modal-newsletter-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel8" aria-hidden="true">
+                                <form id="newsletter-form" method="get" action="#">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h3 class="modal-title" id="myModalLabel8">Subscribe Form</h3>
+                                        </div><!-- End .modal-header -->
+                                        <div class="modal-body">
+
+                                            <div class="form-group mb5">
+                                                <label for="email7" class="input-desc">Your email *</label>
+                                                <input type="email" class="form-control mb5" id="email7" name="email7" placeholder="Your Email" required>
+                                            </div><!-- End .from-group -->
+                                            <p class="mb0"><small>* Don't worry! We won't share it with third party.</small></p>
+
+                                        </div><!-- End .modal-body -->
+                                        <div class="modal-footer text-left">
+                                        <button type="button" class="btn btn-black" data-dismiss="modal">Close</button>
+                                        <button class="btn btn-custom">Subscribe</button>
+                                        </div><!-- End .modal-footer -->
+                                    </div><!-- End .modal-content -->
+                                </div><!-- End .modal-dialog -->
+                                </form>
+                            </div><!-- End .modal -->
+
+
+                        </div><!-- End .col-md-8 -->
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+                <div class="mb100"></div><!-- margin -->
+            </div><!-- End .main -->
   </div><!-- End #wrapper -->
   <a id="scroll-top" href="/#top" title="Scroll top"><i class="fa fa-angle-up"></i></a>
 

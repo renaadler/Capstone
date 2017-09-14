@@ -5,11 +5,6 @@
         <div class="page-header largest largest-top parallax text-center" style="background-image:url(assets/images/relationships_index.jpg)" data-0="background-position:50% 50%;" data-top-bottom="background-position:50% 100%">
             <div class="container-fluid">
                 <h1>My Relationships</h1>
-                <ol class="breadcrumb">
-                    <li><a href="/relationships">Relationships</a></li>
-                    <li><a href="/pending">Pending</a></li>
-                    <li class="active">Disconnected</li>
-                </ol>
             </div><!-- End .container -->
         </div><!-- End .page-header -->
 
@@ -19,9 +14,9 @@
                 <h3 style="color: pink">Not Yet Updated</h3>
                     <div class="row" v-for="relationship in redRelationships">
                         <div class="member">
-                            <div class="member-top service-icon custom2 wow zoomIn" data-wow-delay="0.25s">
+                            <div style="object-fit: cover; width:250px; height:250px;" class="member-top service-icon custom2 wow zoomIn" data-wow-delay="0.25s">
                             <figure>
-                                <img style="max-width: 150em; max-height: 150em;" v-bind:src="relationship.connection.image" alt="Picture Not Loading">
+                                <img v-bind:src="relationship.connection.image" alt="Picture Not Loading">
                             </figure>    
 
                                 <div class="social-icons" v-if="relationship.user_status !== 'Unavailable' && relationship.connected_status !== 'Pending' && relationship.connected_status !== 'Initiating'&& relationship.connected_status !== 'Disconnected'">
@@ -44,9 +39,9 @@
                 <h3 style="color: yellow">Waiting</h3>
                     <div class="row" v-for="relationship in yellowRelationships">
                         <div class="member">
-                            <div class="member-top service-icon custom2 wow zoomIn" data-wow-delay="0.25s">
+                            <div style="object-fit: cover; width:250px; height:250px;" class="member-top service-icon custom2 wow zoomIn" data-wow-delay="0.25s">
                                 <figure>
-                                    <img style="max-width: 150em; max-height: 150em;" v-bind:src="relationship.connection.image" alt="Picture Not Loading">
+                                    <img v-bind:src="relationship.connection.image" alt="Picture Not Loading">
                                 </figure>
                                 <div class="social-icons">
                                     <a href="javascript:void(0)" v-on:click="changeStatus('red', relationship)" class="social-icon" title="Disconnect"><i class="fa fa-circle" aria-hidden="true" style="color:red"></i></a>
@@ -65,7 +60,7 @@
                 <h3 style="color: green">Ready</h3>
                 <div class="row" v-for="relationship in greenRelationships">
                         <div class="member">
-                            <div class="member-top service-icon custom2 wow zoomIn" data-wow-delay="0.25s">
+                            <div style="object-fit: cover; width:250px; height:250px;" class="member-top service-icon custom2 wow zoomIn" data-wow-delay="0.25s">
                                 <figure>
                                     <img style="max-width: 150em; max-height: 150em;" v-bind:src="relationship.connection.image" alt="Picture Not Loading">
                                 </figure>

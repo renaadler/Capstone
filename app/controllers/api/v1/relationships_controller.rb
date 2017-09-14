@@ -12,7 +12,7 @@ class Api::V1::RelationshipsController < ApplicationController
       @relationship.update_step_status
       @relationship.save
       # puts "somereallylongobnoxiousstring"
-      Rufus::Scheduler.singleton.in '3s' do
+      Rufus::Scheduler.singleton.in '30s' do
         # put your own credentials here
         account_sid =  "#{ENV["twilio_account_sid"]}"
         auth_token = "#{ENV["twilio_auth_token"]}"
