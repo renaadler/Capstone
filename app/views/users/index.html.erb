@@ -1,31 +1,15 @@
-<body>
+
 <div class="main">
-    <div class="page-header largest parallax custom text-center" style="background-image:url(assets/images/users_index.jpeg)" data-0="background-position:50% 50%;" data-top-bottom="background-position:50% 100%">
-        <div class="container-fluid">
-            <h1 data-300-top="opacity:1;transform:scale(1);" data-top-bottom="opacity:0.4;transform:scale(1.9);">All Users</h1>
-            <ol class="breadcrumb" data-300-top="opacity:1;" data-top-bottom="opacity:0.4;">
-                <li><a href="/relationships">Relationships</a></li>
-                <li><a href="/pending">Pending</a></li>
-                <li class="active">All Users</li>
-            </ol>
-        </div><!-- End .container-fluid -->
-    </div><!-- End .page-header -->
-    
-    <%= @linkedin_users["lasttName"] %>
-    <a href="<%= @linkedin_users["siteStandardProfileRequest"]["url"] %>"><%= @linkedin_users["firstName"] %>'s LinkedIn Page</a>
-
-
-    <div class="container-fluid fullwidth">
-        <ul id="portfolio-filter">
-            <li class="active"><a href="#" data-filter="*">All</a></li>
-            <li><a href="#" data-filter=".web-design">Web Design</a></li>
-            <li><a href="#" data-filter=".marketing">Marketing</a></li>
-            <li><a href="#" data-filter=".video">Video</a></li>
-            <li><a href="#" data-filter=".wordpress">Wordpress</a></li>
-            <li><a href="#" data-filter=".illustration">Illustration</a></li>
-            <li><a href="#" data-filter=".logo-design">Logo Design</a></li>
-        </ul>
-    </div><!-- End .container-fluid -->
+<div class="page-header largest largest-top parallax text-center" style="background-image:url(assets/images/users_index.jpeg)" data-0="background-position:50% 50%;" data-top-bottom="background-position:50% 100%">
+            <div class="container-fluid">
+                <h1>Users</h1>
+                <ol class="breadcrumb">
+                    <li><a href="/relationships">Relationships</a></li>
+                    <li><a href="/pending">Pending</a></li>
+                    <li class="active">Users</li>
+                </ol>
+            </div><!-- End .container -->
+        </div><!-- End .page-header -->
     <div id="portfolio-item-container" class="popup-gallery max-col-3" data-layoutmode="fitRows">
     <% @users.each do |user| %>
     <div class="portfolio-item portfolio-anim web-design wordpress">
@@ -45,29 +29,10 @@
                                   <input type="submit" value="Connect" class="btn btn-default">
                                 <% end %>
                               <% end %>
-                            <div class="portfolio-tags">
-                                <a href="#">Design</a>,
-                                <a href="#">Develop</a>
-                            </div><!-- End .portfolio-tags -->
+                            
                         </div><!-- End .portfolio-meta -->
                     </div><!-- End .portfolio-item -->
                 <% end %>
                 </div>
 
-</div><!-- End #wrapper -->
-<a id="scroll-top" href="#top" title="Scroll top"><i class="fa fa-angle-up"></i></a>
-
-<!-- End -->
-<script src="assets/js/plugins.min.js"></script>
-<script src="assets/js/main.js"></script>
-</body>
-
-
-<style type="text/css">
-    .pics {
-        max-width: 100%;
-        max-height: 400px;
-        min-width: 100%;
-        min-height: 390px;
-    }
-</style>
+</div><!-- End .main -->

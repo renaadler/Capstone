@@ -1,4 +1,11 @@
-<p></p>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+<% if @linkedin_users %>   
+      <a href="<%= @linkedin_users["siteStandardProfileRequest"]["url"] %>"<%= @linkedin_users["firstName"] %>'s LinkedIn Page></a> 
+<% end %> 
 <a href="/register">
   <img src="<%= asset_path 'Sign-in-Large---Hover.png' %>">
 </a>

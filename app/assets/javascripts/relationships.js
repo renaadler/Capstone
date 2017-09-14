@@ -59,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         return this.relationships.filter(function(relationship) {
           return relationship.user_status !== "Green" 
           && relationship.user_status !== "Yellow"
+          && relationship.user_status !== "Red"
           && relationship.connected_status !== "Disconnected";
         });
       }

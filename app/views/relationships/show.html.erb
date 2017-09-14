@@ -1,6 +1,11 @@
 <script type="text/javascript">
   relationshipId = <%= @relationship.id %>;
 </script>
+<div class="page-header largest largest-top parallax text-center" style="background-image:url(assets/images/takingthenextstep.jpg)" data-0="background-position:50% 50%;" data-top-bottom="background-position:50% 100%">
+            <div class="container-fluid">
+                <h1>FollowUp</h1>
+            </div><!-- End .container -->
+        </div><!-- End .page-header -->
             <div class="row" id="show" style="height: 750px">
               <!-- Start Column 1 -->
               
@@ -8,8 +13,8 @@
                 <h2 style="color:#ffffff">Step One</h2>
                 <transition name="bounce">
                   <div class="info" v-if="relationship.step.id === 1">
-                    <h3>Name: {{ relationship.connection.name }}</h3>
-                    <p>Connection: {{ relationship.connected_status }}</p>
+                    <h3>{{ relationship.connection.name }}</h3>
+                    <p>{{ relationship.connected_status }}</p>
                     <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
                     <p>Next Step: {{relationship.step.title}}</p>
                     <div class="form-group" v-if="relationship.connected_status === 'Connected'">
@@ -23,7 +28,7 @@
                         </select>
                      </p>
                      <button v-on:click="updateStatus()">Update Status</button>
-                     <p><a href="http://www.google.com/calendar/event?action=TEMPLATE&text=[event-title]&dates=[start-custom format='Ymd\\THi00\\Z']/[end-custom format='Ymd\\THi00\\Z']&details=[description]&location=[location]&trp=false&sprop=&sprop=name:" target="_blank" rel="nofollow">Add to my calendar</a></p>
+                     <p><a href="http://www.google.com/calendar/event?action=TEMPLATE&text=[event-title]&dates=[start-custom format='Ymd\\THi00\\Z']/[end-custom format='Ymd\\THi00\\Z']&details=[{{ relationship.step.title }}]&location=[location]&trp=false&sprop=&sprop=name:" target="_blank" rel="nofollow">Add to my calendar</a></p>
                     </div>
                   </div>
                   </transition>
@@ -35,8 +40,8 @@
                 <h2 style="color:#ffffff">Step Two</h2>
               <transition name="bounce">
                   <div class="info" transition="bounce" v-if="relationship.step.id === 2">
-                    <h3>Name: {{ relationship.connection.name }}</h3>
-                    <p>Connection: {{ relationship.connected_status }}</p>
+                    <h3>{{ relationship.connection.name }}</h3>
+                    <p>{{ relationship.connected_status }}</p>
                     <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
                     <p>Next Step: {{relationship.step.title}}</p>
                     <p>{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</p>
@@ -62,8 +67,8 @@
                 <h2 style="color:#ffffff">Step Three</h2>
               <transition name="bounce">
                   <div class="info" v-if="relationship.step.id === 3">
-                    <h3>Name: {{ relationship.connection.name }}</h3>
-                    <p>Connection: {{ relationship.connected_status }}</p>
+                    <h3>{{ relationship.connection.name }}</h3>
+                    <p>{{ relationship.connected_status }}</p>
                     <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
                     <p>Next Step: {{relationship.step.title}}</p>
                     <p>{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</p>
@@ -88,8 +93,8 @@
                 <h2 style="color:#ffffff">Step Four</h2>
               <transition name="bounce">
                   <div class="info" v-if="relationship.step.id === 4">
-                    <h3>Name: {{ relationship.connection.name }}</h3>
-                    <p>Connection: {{ relationship.connected_status }}</p>
+                    <h3>{{ relationship.connection.name }}</h3>
+                    <p>{{ relationship.connected_status }}</p>
                     <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
                     <p>Next Step: {{relationship.step.title}}</p>
                     <p>{{relationship.connection.name}}'s Status: {{relationship.connection_status}}</p>

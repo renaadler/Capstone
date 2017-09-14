@@ -1,9 +1,27 @@
-<% @disconnected_relationships.each do |relationship| %>
-  <h3>Name: <%= relationship.connection.name %> </h3>
-  <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
-  Feature Connection History?
-    <%= form_tag "/relationships/#{relationship.id}", method: "patch", style: "display: inline" do %>
-    <!-- <input type="hidden" name="connection_id" value="<%= relationship.user_id %>"> -->
-    <input type="submit" value="Reconnect" class="btn btn-default">
-    <% end %>
-<% end %>
+<div class="main">
+    <div class="page-header largest largest-top parallax text-center" style="background-image:url(assets/images/disconnected.jpg)" data-0="background-position:50% 50%;" data-top-bottom="background-position:50% 100%">
+            <div class="container-fluid">
+                <h1>Disconnected</h1>
+                
+            </div><!-- End .container -->
+    </div><!-- End .page-header -->
+    <div class="container-fluid">
+        <div class="swiper-container team-carousel-4col">
+            <div class="swiper-wrapper">
+                <% @disconnected_relationships.each do |relationship| %>
+                    <div class="swiper-slide service-icon custom2 wow zoomIn" data-wow-delay="0.25s"">
+                        <div class="member text-center">
+                            <div class="member-top">
+                                 
+                            </div><!-- End .member-top -->
+                            <h3 class="member-title"><a href="#"><%= relationship.connection.name %></a> <small><%= form_tag "/relationships/#{relationship.id}", method: "patch", style: "display: inline" do %>
+                            <!-- <input type="hidden" name="connection_id" value="<%= relationship.user_id %>"> -->
+                            <input type="submit" value="Reconnect" class="btn btn-default">
+                            <% end %></small></h3>
+                        </div><!-- End .member -->
+                    </div><!-- End .swiper-slide -->
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
