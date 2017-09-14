@@ -1,12 +1,12 @@
 <script type="text/javascript">
   relationshipId = <%= @relationship.id %>;
 </script>
-<div class="page-header largest largest-top parallax text-center" style="background-image:url(assets/images/takingthenextstep.jpg)" data-0="background-position:50% 50%;" data-top-bottom="background-position:50% 100%">
+<div class="page-header largest largest-top parallax text-center" style="background-image:url(/assets/images/takingthenextstep.jpg)" data-0="background-position:50% 50%;" data-top-bottom="background-position:50% 100%">
             <div class="container-fluid">
                 <h1>FollowUp</h1>
             </div><!-- End .container -->
         </div><!-- End .page-header -->
-            <div class="row" id="show" style="height: 750px">
+            <div class="row" id="show" style="height: 150vh">
               <!-- Start Column 1 -->
               
               <div class="col-md-3" style="background-color: #8D6BC9; height: 100%">
@@ -15,7 +15,7 @@
                   <div class="info" v-if="relationship.step.id === 1">
                     <h3>{{ relationship.connection.name }}</h3>
                     <p>{{ relationship.connected_status }}</p>
-                    <p><img v-bind:src="relationship.connection.image" style="width: 100%"></p>
+                    <p><img v-bind:src="relationship.connection.image" style="width: 100%; max-height: 500px; object-fit: cover; "></p>
                     <p>Next Step: {{relationship.step.title}}</p>
                     <div class="form-group" v-if="relationship.connected_status === 'Connected'">
                     <p>{{relationship.connection.name}}'s Status:  {{relationship.connection_status}}</p>
